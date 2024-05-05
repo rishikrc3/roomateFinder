@@ -8,6 +8,8 @@ const dotenv = require('dotenv');
 // Load environment variables from .env file
 dotenv.config();
 
+const userRoutes = require('./routes/userRoutes'); 
+
 // Enable CORS
 app.use(cors());
 
@@ -32,6 +34,9 @@ try {
 } catch (error) {
   console.error('Failed to connect to MongoDB:', error);
 }
+
+// Use routes
+app.use('/api', userRoutes);
 
 const PORT = process.env.PORT || 5000;
 
