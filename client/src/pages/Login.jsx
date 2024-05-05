@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
-//import loginImage from '../images/login.png';
+import loginImage from '../images/login.png';
 import './Pages.css';
 
 const LoginPage = () => {
@@ -51,10 +51,14 @@ const LoginPage = () => {
           <Button variant="contained" type="submit" color="primary" className="login-button">
             Login
           </Button>
+          <div className="options">
+          <a href="#" className="google-login">Continue with Google</a>
+          <a href="#" className="forgot-password">Forgot Password?</a>
+        </div>
         </form>
       </div>
       <div className="image-container">
-        {/* <img src={loginImage} alt="Login" /> */}
+        {<img src={loginImage} alt="Login" /> }
       </div>
     </div>
   );
