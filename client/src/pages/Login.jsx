@@ -8,6 +8,7 @@ const LoginPage = () => {
     email: '',
     password: '',
   });
+  //coo
 
   const handleChange = (e) => {
     const { name, value } = e.target;
