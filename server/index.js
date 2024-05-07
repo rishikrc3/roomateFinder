@@ -9,6 +9,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const userRoutes = require('./routes/userRoutes'); 
+const roomRoutes = require('./routes/roomRoutes'); 
 
 // Enable CORS
 app.use(cors());
@@ -37,6 +38,7 @@ try {
 
 // Use routes
 app.use('/api', userRoutes);
+app.use('/api/rooms', roomRoutes);
 
 const PORT = process.env.PORT || 5000;
 
