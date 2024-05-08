@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import loginImage from '../images/login.png';
-import {useHistory} from "react-router-dom"
+
 import axios from 'axios';
 import './Pages.css';
 
 const LoginPage = () => {
+  
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -27,7 +28,7 @@ const LoginPage = () => {
         const response = await axios.post("http://localhost:8000/api/login",formData);
         const token = (response.data.token);
         localStorage.setItem("token",token);
-        //history.push("/basic")
+        window.location.href = "/basic";
     }catch(error){
       console.error(error);
     }

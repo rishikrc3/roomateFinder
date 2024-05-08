@@ -3,12 +3,18 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Basic from './pages/basic';
+import Navbar from './pages/Navbar';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import LoginPage from './pages/Login';
 
 const appRouter = createBrowserRouter([
   {
-    path: "/",
-    element: <App />,
+    path:"/",
+    element:<Navbar/>
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
   },
   {
     path:"/basic",
