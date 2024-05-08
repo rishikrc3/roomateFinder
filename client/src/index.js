@@ -6,20 +6,28 @@ import Basic from './pages/basic';
 import Navbar from './pages/Navbar';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from './pages/Login';
+import Body from './pages/Body';
 
 const appRouter = createBrowserRouter([
   {
     path:"/",
-    element:<Navbar/>
+    element:<App/>,
+    children:[
+      {
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/login",
+        element: <LoginPage />,
+      },
+      {
+        path: "/basic",
+        element: <Basic />,
+      },
+    ],
   },
-  {
-    path: "/login",
-    element: <LoginPage />,
-  },
-  {
-    path:"/basic",
-    element:<Basic/>
-  }
+  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
