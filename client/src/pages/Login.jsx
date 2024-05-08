@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import loginImage from '../images/login.png';
+import axios from 'axios';
 import './Pages.css';
 
 const LoginPage = () => {
@@ -18,10 +19,19 @@ const LoginPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Add login logic here
-    console.log(formData);
+
+    try{
+        const response = await axios.post("http://localhost:8000/api/login",formData);
+        console.log(response.data.user.stream);
+        alert("You have logged in");
+    }catch(error){
+      console.error(error);
+    }
+
+    //console.log(formData);
   };
 
   return (
