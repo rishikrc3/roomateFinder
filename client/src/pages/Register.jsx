@@ -6,15 +6,25 @@ import './Pages.css'
 
 const Register=()=>{
     const [formData, setFormData] = useState({
-        fullName: '',
-        email: '',
-        location: '',
-        stream: '',
-        yearOfPassing: '',
-        gender: '',
-        password: '',
-        confirmPassword: '',
-      });
+      name: '',
+      email: '',
+      password: '',
+      gender: '',
+      from: '',
+      stream: '',
+      yearOfPassing: '',
+      preferences: {
+        nightowl: false,
+        earlyBird: false,
+        studious: false,
+        fitnessFreak: false,
+        sporty: false,
+        petLover: false,
+        partyLover: false,
+        nonAlcoholic: false,
+        musicLover: false,
+        nonSmoker: false
+      }});
       const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
