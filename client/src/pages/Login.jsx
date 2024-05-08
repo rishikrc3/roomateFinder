@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import loginImage from '../images/login.png';
+import {useHistory} from "react-router-dom"
 import axios from 'axios';
 import './Pages.css';
 
@@ -21,17 +22,16 @@ const LoginPage = () => {
 
   const handleSubmit = async(e) => {
     e.preventDefault();
-    // Add login logic here
 
     try{
         const response = await axios.post("http://localhost:8000/api/login",formData);
-        console.log(response.data.user.stream);
-        alert("You have logged in");
+        const token = (response.data.token);
+        localStorage.setItem("token",token);
+        //history.push("/basic")
     }catch(error){
       console.error(error);
     }
 
-    //console.log(formData);
   };
 
   return (
