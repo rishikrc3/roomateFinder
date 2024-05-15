@@ -7,7 +7,7 @@ import Navbar from './pages/Navbar';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from './pages/Login';
 import Body from './pages/Body';
-
+import Register from './pages/Register';
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -25,6 +25,10 @@ const appRouter = createBrowserRouter([
         path: "/basic",
         element: <Basic />,
       },
+      {
+        path: "/register",
+        element: <Register />,
+      }
     ],
   },
   
