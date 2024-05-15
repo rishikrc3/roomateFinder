@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { TextField, Button } from '@mui/material';
 import loginImage from '../images/login.png';
+
+import axios from 'axios';
 import './Pages.css';
 
 const LoginPage = () => {
+  
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
+  //coo
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -17,10 +21,18 @@ const LoginPage = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    // Add login logic here
-    console.log(formData);
+
+    try{
+        const response = await axios.post("http://localhost:8000/api/login",formData);
+        const token = (response.data.token);
+        localStorage.setItem("token",token);
+        window.location.href = "/basic";
+    }catch(error){
+      console.error(error);
+    }
+
   };
 
   return (
