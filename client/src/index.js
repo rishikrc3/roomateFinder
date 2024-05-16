@@ -8,6 +8,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from './pages/Login';
 import Body from './pages/Body';
 import Home from './pages/Home';
+import Register from './pages/Register';
 
 const appRouter = createBrowserRouter([
   {
