@@ -55,7 +55,7 @@ const Rooms = () => {
   const renderRoomCards = () => {
     return roomData.map((room, index) => <RoomCard key={index} {...room} />);
   };
-
+ 
   return (
     <>
     <Search/>

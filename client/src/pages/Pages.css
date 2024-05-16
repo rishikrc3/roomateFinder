@@ -112,3 +112,50 @@
     margin-top: 20px;
     width: 100%;
   }
+
+  /* RoomCard.css */
+
+.room-card {
+  background-color: #ffffff;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.room-card h1 {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.room-card h1:first-child {
+  margin-top: 0;
+}
+
+.room-card h1:last-child {
+  margin-bottom: 0;
+}
+
+/* Pages.css */
+
+.search-page {
+  padding: 20px;
+}
+
+.results {
+  display: flex;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
