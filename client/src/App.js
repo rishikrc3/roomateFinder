@@ -1,9 +1,8 @@
 import logo from './logo.svg';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Basic from './pages/basic';
 import Navbar from './pages/Navbar';
-import { Outlet } from "react-router-dom";
+import { Outlet } from 'react-router-dom';
 function App() {
   return (
     <>

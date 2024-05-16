@@ -26,6 +26,10 @@ const appRouter = createBrowserRouter([
         path: "/basic",
         element: <Basic />,
       },
+      {
+        path: "/register",
+        element: <Register />,
+      }
     ],
   },
   
