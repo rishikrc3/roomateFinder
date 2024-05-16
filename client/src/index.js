@@ -7,6 +7,7 @@ import Navbar from './pages/Navbar';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import LoginPage from './pages/Login';
 import Body from './pages/Body';
+import Home from './pages/Home';
 
 const appRouter = createBrowserRouter([
   {
@@ -15,7 +16,7 @@ const appRouter = createBrowserRouter([
     children:[
       {
         path: "/",
-        element: <Body />,
+        element: <Home />,
       },
       {
         path: "/login",
