@@ -10,6 +10,7 @@ import Body from './pages/Body';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Rooms from './pages/Rooms';
+
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -34,6 +35,7 @@ const appRouter = createBrowserRouter([
       {
         path: "/rooms",
         element:<Rooms/>
+
       }
     ],
   },
