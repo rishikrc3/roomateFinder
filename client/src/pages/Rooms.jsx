@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import RoomCard from "./RoomCard";
 import Search from "./Search";
@@ -70,3 +71,4 @@ const Rooms = () => {
 };
 
 export default Rooms;
+
