@@ -34,7 +34,8 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/rooms",
-        element: <Rooms />,
+        element:<Rooms/>
+
       }
     ],
   },
