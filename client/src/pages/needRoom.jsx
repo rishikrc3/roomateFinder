@@ -1,29 +1,44 @@
 import React from "react";
 import { Form, Input, InputNumber, Switch, Button, Select } from "antd";
 import axios from "axios";
-
+//commentadsfadf
 const { Option } = Select;
 
 const RoomForm = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values) => {
-    console.log("Form Values:", values); // Log form values to the console
+  const onFinish = async (values) => {
+    console.log("Form Values:", JSON.stringify(values)); // Log form values to the console
 
     const token = localStorage.getItem("token");
-    console.log(token);
-    axios
-      .post("http://localhost:8000/api/rooms/", values, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log("Success:", response.data); // Log the success response
-      })
-      .catch((error) => {
-        console.error("Error:", error); // Log any errors
-      });
+    console.log("Token:", token); // Log token to the console
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/api/rooms/",
+        JSON.stringify(values), // Convert values to JSON string
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json", // Ensure correct content type
+          },
+        }
+      );
+      console.log("Success:", response.data); // Log the success response
+    } catch (error) {
+      if (error.response) {
+        // Server responded with a status other than 200 range
+        console.error("Error Response Data:", error.response.data);
+        console.error("Error Response Status:", error.response.status);
+        console.error("Error Response Headers:", error.response.headers);
+      } else if (error.request) {
+        // Request was made but no response was received
+        console.error("Error Request:", error.request);
+      } else {
+        // Something happened in setting up the request
+        console.error("Error Message:", error.message);
+      }
+    }
   };
 
   return (
@@ -68,7 +83,10 @@ const RoomForm = () => {
         name="occupancy"
         rules={[{ required: true, message: "Please input the occupancy!" }]}
       >
-        <Input />
+        <Select>
+          <Option value="double">Double</Option>
+          <Option value="triple">Triple</Option>
+        </Select>
       </Form.Item>
 
       <Form.Item label="Highlights" name="highlights">
