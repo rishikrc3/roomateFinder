@@ -4,7 +4,7 @@ import loginImage from '../images/login.png';
 
 import axios from 'axios';
 // import './Pages.css';
-import './Login.css';
+//import './Login.css';
 
 const LoginPage = () => {
   
