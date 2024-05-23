@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import './search.css';
+import './Pages.css';
 
 
 const Search = () => {
