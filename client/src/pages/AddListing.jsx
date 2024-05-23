@@ -9,19 +9,24 @@ const App = () => {
   };
 
   return (
-    <div>
-      <Card
-        image={NeedRoom}
-        title="Need Room"
-        description="with roomamte"
-        onClick={handleClick}
-      />
-      <Card
-        image={NeedRoommate}
-        title="Need Roomamte"
-        description="for my Room"
-        onClick={handleClick}
-      />
+    <div className="addlist_container">
+        <div className="title">
+            <h1>Post Your Requirements</h1>
+        </div>
+      <div>
+        <Card
+          image={NeedRoom}
+          title="Need Room"
+          description="with roomamte"
+          onClick={handleClick}
+        />
+        <Card
+          image={NeedRoommate}
+          title="Need Roomamte"
+          description="for my Room"
+          onClick={handleClick}
+        />
+      </div>
     </div>
   );
 };

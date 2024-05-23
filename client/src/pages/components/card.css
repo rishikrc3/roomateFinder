@@ -24,12 +24,12 @@
     padding: 20px;
   }
   
-  .card-content h2 {
+  .card-content h1 {
     font-size: 18px;
     margin-bottom: 10px;
   }
   
-  .card-content p {
+  .card-content h2 {
     font-size: 14px;
     color: #666;
   }
