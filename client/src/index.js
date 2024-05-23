@@ -10,6 +10,7 @@ import Body from './pages/Body';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Rooms from './pages/Rooms';
+import Card from './pages/AddListing';
 import NeedRoom from './pages/needRoom';
 const appRouter = createBrowserRouter([
   {
@@ -35,6 +36,12 @@ const appRouter = createBrowserRouter([
       {
         path: "/rooms",
         element:<Rooms/>
+
+      },
+      {
+        path: "/addListing",
+        element:<Card/>
+
       },
       {
         path:"/needRoom",

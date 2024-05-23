@@ -2,7 +2,8 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import registerImage from '../images/register.png'
-import './Pages.css'
+// import './Pages.css'
+import './Register.css'
 
 const Register=()=>{
     const [formData, setFormData] = useState({

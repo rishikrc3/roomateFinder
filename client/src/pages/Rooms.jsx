@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import RoomCard from "./RoomCard";
 import Search from "./Search";
 import "./Pages.css";
+import './RoomCard.css';
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);

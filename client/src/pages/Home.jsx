@@ -1,12 +1,14 @@
 import React from "react";
 import "./home.css";
 import homeImage from "../images/home.jpg";
+import logo from "../images/logo.png"; 
+
 const Home = () => {
   return (
-    <section className="container">
-      <div className="left-half">
+    <section className="home-container">
+      <div className="left-half" style={{ backgroundImage: `url(${logo})` }}> {/* Add this line */}
         <div className="writeup1">
-          <h1>Hey! You are in the right place</h1>
+          <h1>Hey! You are at the right place</h1>
         </div>
         <div className="writeup2">
           <h3>
