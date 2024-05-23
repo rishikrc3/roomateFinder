@@ -11,7 +11,7 @@ import Home from './pages/Home';
 import Register from './pages/Register';
 import Rooms from './pages/Rooms';
 import Card from './pages/AddListing';
-
+import NeedRoom from './pages/needRoom';
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -42,6 +42,10 @@ const appRouter = createBrowserRouter([
         path: "/addListing",
         element:<Card/>
 
+      },
+      {
+        path:"/needRoom",
+        element:<NeedRoom/>
       }
     ],
   },
