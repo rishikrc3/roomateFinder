@@ -111,3 +111,8 @@ styles.css
     opacity: 1;
     right: 0;
   }
+
+  .left-half img {
+    width: 80px;
+    height: 80px;
+  }
