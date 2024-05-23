@@ -12,14 +12,14 @@ const App = () => {
     <div>
       <Card
         image={NeedRoom}
-        title="Card 1"
-        description="This is a description of card 1"
+        title="Need Room"
+        description="with roomamte"
         onClick={handleClick}
       />
       <Card
         image={NeedRoommate}
-        title="Card 2"
-        description="This is a description of card 2"
+        title="Need Roomamte"
+        description="for my Room"
         onClick={handleClick}
       />
     </div>

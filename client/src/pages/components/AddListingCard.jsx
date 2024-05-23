@@ -6,11 +6,13 @@ const Card = ({ image, title, description, onClick }) => {
     <div className="card">
       <img src={image} alt={title} />
       <div className="card-content">
-        <h2>{title}</h2>
-        <p>{description}</p>
+        <h1>{title}</h1>
+      </div>
+      <div className="description">
+        <h2>{description}</h2>
       </div>
       <button className="card-button" onClick={onClick}>
-        Learn More
+        Add Post
       </button>
     </div>
   );
