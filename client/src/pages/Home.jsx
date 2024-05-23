@@ -5,7 +5,7 @@ import logo from "../images/logo.png";
 
 const Home = () => {
   return (
-    <section className="container">
+    <section className="home-container">
       <div className="left-half" style={{ backgroundImage: `url(${logo})` }}> {/* Add this line */}
         <div className="writeup1">
           <h1>Hey! You are at the right place</h1>
