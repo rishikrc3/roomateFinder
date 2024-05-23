@@ -13,5 +13,9 @@ function App() {
     </>
   );
 }
-
 export default App;
+
+// after commit
+// git checkout main
+// git merge feature/sudipta
+// git push origin main
