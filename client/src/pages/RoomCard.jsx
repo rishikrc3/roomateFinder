@@ -1,5 +1,6 @@
 import React from "react";
 import "./Pages.css";
+import './RoomCard.css'
 
 const RoomCard = ({ fullName, messName, location, rent, lookingFor }) => {
   return (

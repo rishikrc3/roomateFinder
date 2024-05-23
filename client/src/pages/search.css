@@ -1,0 +1,23 @@
+/* for search box   */
+
+.search {
+    display: flex;
+    
+  }
+  
+  .option-box:last-child {
+    margin-right: 0; 
+  }
+  
+  .google-login, .forgot-password {
+    text-decoration: none;
+    color: #333;
+    margin: 10px;
+  }
+  
+  .login-button {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    margin-top: 20px;
+    width: 100%;
+  }
