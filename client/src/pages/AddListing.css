@@ -1,3 +1,9 @@
 .addlist_container{
+    
+    border: 2px black;
+    height: 200vh;
+    width: 200vw;
+}
+.card-section{
     display: flex;
 }

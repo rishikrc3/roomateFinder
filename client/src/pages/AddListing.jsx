@@ -2,6 +2,7 @@ import React from "react";
 import Card from "./components/AddListingCard";
 import NeedRoom from "../images/NeedRoom.png";
 import NeedRoommate from "../images/NeedRoommate.jpg";
+import "./AddListing.css";
 
 const App = () => {
   const handleClick = () => {
@@ -10,10 +11,10 @@ const App = () => {
 
   return (
     <div className="addlist_container">
-        <div className="title">
-            <h1>Post Your Requirements</h1>
-        </div>
-      <div>
+      <div className="title">
+        <h1>Post Your Requirements</h1>
+      </div>
+      <div className="card-section">
         <Card
           image={NeedRoom}
           title="Need Room"
