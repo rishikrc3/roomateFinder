@@ -26,8 +26,10 @@ styles.css
   }
   
   /* Pattern styles */
-  .container {
+  .home-container {
     display: flex;
+    flex-direction: coloumn;
+
   }
   
   .left-half {
@@ -38,6 +40,13 @@ styles.css
     padding: 1rem;
     justify-content: center;
     align-items: left;
+
+    background-image: url('../images/logo.png'); /* Replace with the path to your logo file */
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-size: 80px 80px;
+    padding-left: 80px;
+
 
   }
   .writeup1{
