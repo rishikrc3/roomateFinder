@@ -6,6 +6,7 @@ const RoomSchema = new mongoose.Schema({
   lookingFor: { type: String, enum: ['male', 'female', 'any'], default: 'any' },
   rent: { type: Number, required: true },
   occupancy: { type: String, enum: ['double', 'triple'], default: 'double' },
+  contactNo: { type: Number, required: true },
   highlights: {
     attachedWashroom: { type: Boolean, default: false },
     marketNearby: { type: Boolean, default: false },
