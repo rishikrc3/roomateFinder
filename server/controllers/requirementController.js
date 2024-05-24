@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 const requirementController = {
   createRequirement: async (req, res) => {
-    const { location, rent, lookingFor, preferenceStream, description } = req.body;
+    const { location, rent, contactNo,  lookingFor, preferenceStream, description } = req.body;
     const userId = req.userId; // Assuming authenticate middleware sets req.userId
 
     try {
@@ -11,6 +11,7 @@ const requirementController = {
         userId,
         location,
         rent,
+        contactNo,
         lookingFor,
         preferenceStream,
         description,
@@ -54,12 +55,12 @@ const requirementController = {
 
   updateRequirement: async (req, res) => {
     const { id } = req.params;
-    const { location, rent, lookingFor, preferenceStream, description } = req.body;
+    const { location, rent, contactNo, lookingFor, preferenceStream, description } = req.body;
 
     try {
       const updatedRequirement = await Requirement.findByIdAndUpdate(
         id,
-        { location, rent, lookingFor, preferenceStream, description },
+        { location, rent, contactNo, lookingFor, preferenceStream, description },
         { new: true }
       );
 

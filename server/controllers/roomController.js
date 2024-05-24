@@ -4,7 +4,7 @@ const User = require('../models/User');
 const roomController = {
   // Create a new room (requires authentication)
   createRoom: async (req, res) => {
-    const { messName, location, lookingFor, rent, occupancy, highlights, amenities } = req.body;
+    const { messName, location, lookingFor, rent, occupancy, contactNo, highlights, amenities } = req.body;
 
     try {
       const newRoom = new Room({
@@ -13,6 +13,7 @@ const roomController = {
         lookingFor,
         rent,
         occupancy,
+        contactNo,
         highlights,
         amenities,
         createdBy: req.userId, // The user who created the room
