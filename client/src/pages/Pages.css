@@ -1,76 +1,44 @@
+/* Rooms.css */
 
-/* Pages.css */
-
-.search {
+.top-bar {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-input[type="text"] {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-right: 10px;
-  width: 300px; /* Adjust width as needed */
-}
-
-.search-btn {
   padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dee2e6;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.search-btn:hover {
+.fetch-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.fetch-button:hover {
   background-color: #0056b3;
 }
 
-.select-wrapper {
-  position: relative;
+.search-bar {
+  flex-grow: 1;
+  max-width: 400px;
+  margin-left: 20px;
 }
 
-.select-wrapper:after {
-  content: '\25BC'; /* Downward arrow */
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
+.search-page .container {
+  padding: 20px;
 }
-
-.gender-select {
-  padding: 8px 30px 8px 10px; /* Adjust padding to accommodate arrow */
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  appearance: none;
-  -webkit-appearance: none;
-  background-color: #fff;
-  background-image: linear-gradient(45deg, transparent 50%, #000 50%),
-                    linear-gradient(135deg, #000 50%, transparent 50%);
-  background-position: calc(100% - 10px) calc(1em + 2px), calc(100% - 5px) calc(1em + 2px);
-  background-size: 5px 5px, 5px 5px;
-  background-repeat: no-repeat;
-  cursor: pointer;
-}
-
-/* Optional: Add styles for the container that holds both input and select */
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 
 .results {
   display: flex;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-gap: 20px;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
+/* Add any additional styles for RoomCard and other components as needed */
