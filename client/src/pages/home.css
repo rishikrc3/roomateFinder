@@ -20,9 +20,9 @@ styles.css
     align-items: center;
   } */
 
-  h1 {
+  .p1 {
     font-size: 1.75rem;
-    /* margin: 0 0 0.75rem 0; */
+    margin: 0 0 0.75rem 0;
   }
   
   /* Pattern styles */
@@ -33,7 +33,7 @@ styles.css
   }
   
   .left-half {
-    /* background-color: #92877a; */
+    background-color: #92877a;
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -82,7 +82,7 @@ styles.css
     width: 100vh;
   }
 
-  .button {
+  /* .button {
     border-radius: 10px;
     background-color: rgb(42, 30, 128);
     border: none;
@@ -120,6 +120,7 @@ styles.css
     opacity: 1;
     right: 0;
   }
+   */
 
   .left-half img {
     width: 80px;
