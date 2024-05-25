@@ -1,0 +1,36 @@
+/* RoomCard.css */
+
+.room-card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px;
+  width: 100%;
+  max-width: 250px;
+  transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+  transform: translateY(-10px);
+}
+
+.room-card-title {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #333333;
+}
+
+.room-card-detail {
+  font-size: 16px;
+  color: #555555;
+  margin: 5px 0;
+}
+
+.results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-around;
+}

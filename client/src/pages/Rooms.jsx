@@ -1,9 +1,9 @@
-
 import React, { useEffect, useState } from "react";
-import RoomCard from "./RoomCard";
+import RoomCard from "./components/RoomCard";
 import Search from "./Search";
 import "./Pages.css";
-import './RoomCard.css';
+import './components/RoomCard.css';
+//import './Rooms.css';
 
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
@@ -28,8 +28,10 @@ const Rooms = () => {
 
   return (
     <>
-      <Search />
-      <button onClick={handleButtonClick}>Fetch Rooms</button>
+      <div className="top-bar">
+        <button className="fetch-button" onClick={handleButtonClick}>Fetch Rooms</button>
+        <Search className="search-bar" />
+      </div>
       <section className="search-page">
         <div className="container">
           <div className="results">

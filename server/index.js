@@ -10,6 +10,7 @@ dotenv.config();
 
 const userRoutes = require('./routes/userRoutes'); 
 const roomRoutes = require('./routes/roomRoutes'); 
+const requirementRoutes = require('./routes/requirementRoutes');
 
 // Enable CORS
 app.use(cors());
@@ -39,6 +40,7 @@ try {
 // Use routes
 app.use('/api', userRoutes);
 app.use('/api/rooms', roomRoutes);
+app.use('/api/requirements', requirementRoutes);
 
 const PORT = process.env.PORT || 5000;
 
