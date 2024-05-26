@@ -21,18 +21,6 @@
   margin-bottom: 20px;
 }
 
-.image-container {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.image-container img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
 
 .preferences-container {
   margin-top: 20px;
