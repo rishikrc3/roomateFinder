@@ -15,11 +15,11 @@ const Register = () => {
     name: "",
     email: "",
     password: "",
+    confirmPassword: "",
     gender: "",
     from: "",
     stream: "",
     yearOfPassing: "",
-    confirmPassword: "",
     preferences: {
       nightowl: false,
       earlyBird: false,
@@ -34,6 +34,8 @@ const Register = () => {
     },
   });
 
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -44,6 +46,11 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+    setError("");
     // Add form submission logic here
     console.log(formData);
     // Send data to the server
@@ -63,11 +70,10 @@ const Register = () => {
       const responseData = await response.json();
       console.log("Request Data:", formData);
       console.log("Response:", responseData);
-      if(response.ok && responseData.token)
-        {
-          localStorage.setItem('token',responseData.token);
-          window.location.href="/rooms";
-        }
+      if (response.ok && responseData.token) {
+        localStorage.setItem("token", responseData.token);
+        // window.location.href="/rooms";
+      }
     } catch (error) {
       console.error("Error:", error);
     }
@@ -137,7 +143,6 @@ const Register = () => {
             >
               <MenuItem value="male">Male</MenuItem>
               <MenuItem value="female">Female</MenuItem>
-              <MenuItem value="other">Other</MenuItem>
             </Select>
           </FormControl>
           <TextField
@@ -160,6 +165,7 @@ const Register = () => {
             fullWidth
             margin="normal"
           />
+          {error && <p style={{ color: "red" }}>{error}</p>}
           <Button
             variant="contained"
             type="submit"
