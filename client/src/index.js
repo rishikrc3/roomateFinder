@@ -15,6 +15,7 @@ import NeedRoom from './pages/needRoom';
 import NeedRoommate from './pages/needRoommate';
 import Profile from './pages/profile';
 import Footer from './pages/Footer' ;
+import "./index.css";
 const appRouter = createBrowserRouter([
   {
     path:"/",
