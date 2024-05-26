@@ -1,55 +1,94 @@
-import React, {useState} from 'react';  
-import ReactDOM from 'react-dom';
-import { TextField, Button, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
-import registerImage from '../images/register.png'
-// import './Pages.css'
-import './Register.css'
+import React, { useState } from "react";
+import {
+  TextField,
+  Button,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from "@mui/material";
+import registerImage from "../images/register.png";
+import "./Register.css";
 
-const Register=()=>{
-    const [formData, setFormData] = useState({
-      name: '',
-      email: '',
-      password: '',
-      gender: '',
-      from: '',
-      stream: '',
-      yearOfPassing: '',
-      preferences: {
-        nightowl: false,
-        earlyBird: false,
-        studious: false,
-        fitnessFreak: false,
-        sporty: false,
-        petLover: false,
-        partyLover: false,
-        nonAlcoholic: false,
-        musicLover: false,
-        nonSmoker: false
-      }});
-      const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData({
-          ...formData,
-          [name]: value,
-        });
-      };
-      const handleSubmit = (e) => {
-        e.preventDefault();
-        // Add form submission logic here
-        console.log(formData);
-      };
-    
-    return (
-    <>
-    <div className="register-container"> 
+const Register = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+    from: "",
+    stream: "",
+    yearOfPassing: "",
+    preferences: {
+      nightowl: false,
+      earlyBird: false,
+      studious: false,
+      fitnessFreak: false,
+      sporty: false,
+      petLover: false,
+      partyLover: false,
+      nonAlcoholic: false,
+      musicLover: false,
+      nonSmoker: false,
+    },
+  });
+
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.password !== formData.confirmPassword) {
+      setError("Passwords do not match");
+      return;
+    }
+    setError("");
+    // Add form submission logic here
+    console.log(formData);
+    // Send data to the server
+    sendDataToServer();
+  };
+
+  const sendDataToServer = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const responseData = await response.json();
+      console.log("Request Data:", formData);
+      console.log("Response:", responseData);
+      if (response.ok && responseData.token) {
+        localStorage.setItem("token", responseData.token);
+        // window.location.href="/rooms";
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
+  };
+
+  return (
+    <div className="register-container">
       <div className="form-container">
-      <h2 className="register-heading">Register</h2>
+        <h2 className="register-heading">Register</h2>
         <form onSubmit={handleSubmit}>
           <TextField
-            label="Full Name"
+            label="Name"
             type="text"
-            name="fullName"
-            value={formData.fullName}
+            name="name"
+            value={formData.name}
             onChange={handleChange}
             required
             fullWidth
@@ -68,8 +107,8 @@ const Register=()=>{
           <TextField
             label="Where are you from?"
             type="text"
-            name="location"
-            value={formData.location}
+            name="from"
+            value={formData.from}
             onChange={handleChange}
             required
             fullWidth
@@ -104,10 +143,9 @@ const Register=()=>{
             >
               <MenuItem value="male">Male</MenuItem>
               <MenuItem value="female">Female</MenuItem>
-              <MenuItem value="other">Other</MenuItem>
             </Select>
           </FormControl>
-            <TextField
+          <TextField
             label="Password"
             type="password"
             name="password"
@@ -127,18 +165,19 @@ const Register=()=>{
             fullWidth
             margin="normal"
           />
-          <Button variant="contained" type="submit" color="primary" className="register-button">
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <Button
+            variant="contained"
+            type="submit"
+            color="primary"
+            className="register-button"
+          >
             Register
           </Button>
         </form>
       </div>
-        <div className="image-container">
-        <img src={registerImage} alt="Register" />
-      </div>
-      
     </div>
-     
-    </>
-    )
-}
+  );
+};
+
 export default Register;

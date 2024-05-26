@@ -20,3 +20,7 @@ export default App;
 // git checkout main
 // git merge feature/sudipta
 // git push origin main
+// #449BA2 - Green shade
+// #49BB8E -
+// #FEE098
+// #637179 - Grey Colour
