@@ -1,0 +1,32 @@
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f0f2f5;
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .form-content {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .form-input {
+    width: 100%;
+  }
+  
+  .form-submit-button {
+    width: 100%;
+  }
+  

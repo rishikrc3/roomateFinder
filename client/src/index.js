@@ -12,6 +12,7 @@ import Register from './pages/Register';
 import Rooms from './pages/Rooms';
 import Card from './pages/AddListing';
 import NeedRoom from './pages/needRoom';
+import NeedRoommate from './pages/needRoommate';
 import Profile from './pages/profile';
 import Footer from './pages/Footer' ;
 const appRouter = createBrowserRouter([
@@ -48,6 +49,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/needRoom",
         element:<NeedRoom/>
+      },
+      {
+        path:"/needRoommate",
+        element:<NeedRoommate/>
       },
       {
         path:"/profile",
