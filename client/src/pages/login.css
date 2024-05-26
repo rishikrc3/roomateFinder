@@ -1,14 +1,20 @@
 .login-container {
   width: 90%;
-  height: 100vh;
+  height: 96vh;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .image-container {
   width: 50%;
-  align-items: center;
+  /* justify-self: start; */
+}
+
+
+.img-target{
+  width: 45vw;
 }
 
 .form-container {
@@ -41,10 +47,16 @@ form {
   margin-bottom: 4rem;
 }
 
-h4:hover{
+h4 {
+  text-align: right;
+  display: block;
+}
+
+h4:hover {
   color: lightcoral;
   cursor: pointer;
 }
+
 /* .login-button {
   
   } */
@@ -61,14 +73,20 @@ input {
   background-color: #449ba2 !important;
 }
 
-h4 {
-  text-align: right;
-}
 
-@media (max-width: 600px) {
+@media screen and (max-width: 960px) {
   .login-container {
     flex-direction: column;
   }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* img {
+    width: 50vw;
+  } */
 
   .image-container,
   .form-container {
@@ -78,6 +96,7 @@ h4 {
   .login-button {
     width: 100%;
   }
+
 }
 
 

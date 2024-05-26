@@ -40,7 +40,7 @@ const LoginPage = () => {
   return (
     <div className="login-container">
       <div className="image-container">
-        {<img src={loginImage} alt="Login" />}
+        {<img src={loginImage} alt="Login" className='img-target' />}
       </div>
       <div className="form-container">
         <h2 className="login-heading">Login</h2>
