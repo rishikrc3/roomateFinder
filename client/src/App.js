@@ -3,6 +3,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 // import Navbar from "./pages/Navbar";
 import Navbar from "./pages/components/Navbar2";
+import Footer from './pages/Footer';
 import { Outlet } from "react-router-dom";
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <div className="App">
         <Navbar />
         <Outlet />
+        <Footer />
       </div>
     </>
   );
