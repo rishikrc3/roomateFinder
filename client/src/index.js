@@ -13,6 +13,7 @@ import Rooms from './pages/Rooms';
 import Card from './pages/AddListing';
 import NeedRoom from './pages/needRoom';
 import Profile from './pages/profile';
+import Footer from './pages/Footer' ;
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -51,6 +52,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/profile",
         element:<Profile/>
+      },
+      {
+        path:"/footer",
+        element:<Footer/>
       }
     ],
   },

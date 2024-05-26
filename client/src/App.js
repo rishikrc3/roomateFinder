@@ -7,11 +7,19 @@ function App() {
   return (
     <>
       <div className="App">
-        <Navbar />
+        { <Navbar /> }
         <Outlet />
       </div>
     </>
   );
 }
-
 export default App;
+
+// after commit
+// git checkout main
+// git merge feature/sudipta
+// git push origin main
+// #449BA2 - Green shade
+// #49BB8E -
+// #FEE098
+// #637179 - Grey Colour

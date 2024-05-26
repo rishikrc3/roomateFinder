@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.home-container {
+    /* text-align: left; */
+    display: flex;
+    margin: 0 3rem;
+
+
+}
+
+.left-half-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.p1,
+.p2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+/* .span {
+    color: lightcoral;
+    
+} */
+
+img {
+    width: 50vw;
+    height: auto;
+}
+
+.details{
+    width: auto;
+    height: 80vh;
+    background-color: grey;
+    margin: 0 3rem;
+}
+
+@media screen and (max-width:820px) {
+    .home-container {
+        flex-direction: column;
+    }
+
+
+}
