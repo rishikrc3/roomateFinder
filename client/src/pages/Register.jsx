@@ -176,9 +176,6 @@ const Register = () => {
           </Button>
         </form>
       </div>
-      <div className="image-container">
-        <img src={registerImage} alt="Register" />
-      </div>
     </div>
   );
 };
