@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, InputLabel,  } from '@mui/material';
 import loginImage from '../images/login.png';
+import './login.css'
 
 import axios from 'axios';
 // import './Pages.css';
 //import './Login.css';
 
 const LoginPage = () => {
-  
+
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -22,15 +23,15 @@ const LoginPage = () => {
     });
   };
 
-  const handleSubmit = async(e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    try{
-        const response = await axios.post("http://localhost:8000/api/login",formData);
-        const token = (response.data.token);
-        localStorage.setItem("token",token);
-        window.location.href = "/basic";
-    }catch(error){
+    try {
+      const response = await axios.post("http://localhost:8000/api/login", formData);
+      const token = (response.data.token);
+      localStorage.setItem("token", token);
+      window.location.href = "/basic";
+    } catch (error) {
       console.error(error);
     }
 
@@ -38,11 +39,15 @@ const LoginPage = () => {
 
   return (
     <div className="login-container">
+      <div className="image-container">
+        {<img src={loginImage} alt="Login" />}
+      </div>
       <div className="form-container">
         <h2 className="login-heading">Login</h2>
         <form onSubmit={handleSubmit}>
+          <InputLabel htmlFor="email">Email Address</InputLabel>
           <TextField
-            label="Email Address"
+            // label="Email Address"
             type="email"
             name="email"
             value={formData.email}
@@ -50,9 +55,13 @@ const LoginPage = () => {
             required
             fullWidth
             margin="normal"
+            placeholder='abc@nsec.ac.in'
+            // style={{ '::placeholder': { fontWeight: 'bolder' } }}
+
           />
+          <InputLabel htmlFor="password">Password</InputLabel>
           <TextField
-            label="Password"
+            // label="Password"
             type="password"
             name="password"
             value={formData.password}
@@ -60,19 +69,21 @@ const LoginPage = () => {
             required
             fullWidth
             margin="normal"
+            className='password-text-field'
           />
-          <Button variant="contained" type="submit" color="primary" className="login-button">
+          <h4>Forgot your password? {/* <Link to="/reset">Reset</Link> */}</h4>
+
+          {/* //can you create a forgot password section here? */}
+          <Button variant="contained" type="submit" className="login-button">
             Login
           </Button>
-          <div className="options">
-          <a href="#" className="google-login">Continue with Google</a>
-          <a href="#" className="forgot-password">Forgot Password?</a>
-        </div>
+          {/* <div className="options">
+            <a href="#" className="google-login">Continue with Google</a>
+            <a href="#" className="forgot-password">Forgot Password?</a>
+          </div> */}
         </form>
       </div>
-      <div className="image-container">
-        {<img src={loginImage} alt="Login" /> }
-      </div>
+
     </div>
   );
 };

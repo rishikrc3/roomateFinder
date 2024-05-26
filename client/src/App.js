@@ -1,13 +1,14 @@
 import logo from "./logo.svg";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
-import Navbar from "./pages/Navbar";
+// import Navbar from "./pages/Navbar";
+import Navbar from "./pages/components/Navbar2";
 import { Outlet } from "react-router-dom";
 function App() {
   return (
     <>
       <div className="App">
-        { <Navbar /> }
+        <Navbar />
         <Outlet />
       </div>
     </>
