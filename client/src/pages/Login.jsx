@@ -71,7 +71,7 @@ const LoginPage = () => {
             margin="normal"
             className='password-text-field'
           />
-          <h4>Forgot your password? {/* <Link to="/reset">Reset</Link> */}</h4>
+          <div className="forgot-password"><h4>Forgot your password? {/* <Link to="/reset">Reset</Link> */}</h4></div>
 
           {/* //can you create a forgot password section here? */}
           <Button variant="contained" type="submit" className="login-button">

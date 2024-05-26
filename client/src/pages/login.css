@@ -40,6 +40,10 @@ form {
 .password-text-field {
   margin-bottom: 4rem;
 }
+.forgot-password{
+  display: flex;
+  justify-content: end;
+}
 
 h4:hover{
   color: lightcoral;
