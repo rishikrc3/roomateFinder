@@ -69,7 +69,7 @@ h4 {
   text-align: right;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 960px) {
   .login-container {
     flex-direction: column;
   }
