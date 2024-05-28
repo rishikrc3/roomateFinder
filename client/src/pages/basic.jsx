@@ -1,11 +1,64 @@
-import React from "react";
-const basic=()=>{
+import React, { useEffect, useState } from "react";
+import RoomCard from "./components/RoomCard";
+import Search from "./Search";
+import "./Pages.css";
+import './components/RoomCard.css';
 
-    return(
-        <>
-        <h1>This is a baisc page</h1>
-        </>
-    )
-}
+const Rooms = () => {
+  const [rooms, setRooms] = useState([]);
 
-export default basic;
+  const fetchRoom = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/rooms");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      console.log("Response:", data);
+      setRooms(data);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+  const fetchRoomMate = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/requirements");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      console.log("Response:", data);
+      setRooms(data);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+
+  const handleRoomButtonClick = () => {
+    fetchRoom();
+  };
+  const handleRoommateButtonClick = () =>{
+    fetchRoomMate();
+  };
+
+  return (
+    <>
+      <div className="top-bar">
+        <button className="fetch-button" onClick={handleRoomButtonClick}>Rooms</button>
+        <button className="fetch-button" onClick={handleRoommateButtonClick}>Roomamtes</button>
+        <Search className="search-bar" />
+      </div>
+      <section className="search-page">
+        <div className="container">
+          <div className="results">
+            {rooms.map((room, index) => (
+              <RoomCard key={index} {...room} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  );
+};
+
+export default Rooms;

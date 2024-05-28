@@ -7,7 +7,7 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
-import registerImage from "../images/register.png";
+// import registerImage from "../images/register.png";
 import "./Register.css";
 
 const Register = () => {
@@ -34,7 +34,7 @@ const Register = () => {
     },
   });
 
-  const [error, setError] = useState("");
+  const [error, setError] = useState(""); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;

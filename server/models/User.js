@@ -32,6 +32,7 @@ const UserSchema = new mongoose.Schema({
   from: { type: String, required: true },
   stream: { type: String, required: true },
   yearOfPassing: { type: Number, required: true },
+  profileImage: { type: String }, // Add profileImage field
 });
 
 // Hash password before saving
