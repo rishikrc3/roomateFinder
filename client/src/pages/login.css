@@ -12,9 +12,6 @@
 }
 
 .form-container {
-  /* width: 50%; */
-
-  /* padding: 20px; */
   display: flex;
   flex-direction: column;
 
@@ -30,7 +27,7 @@
 form {
   display: flex;
   flex-direction: column;
-  /* width: 50%; */
+ 
 }
 
 .TextField {
@@ -49,9 +46,6 @@ h4:hover{
   color: lightcoral;
   cursor: pointer;
 }
-/* .login-button {
-  
-  } */
 
 input {
   border: 1px solid #ccc;
@@ -85,44 +79,3 @@ h4 {
 }
 
 
-
-/* Login Page 
-  .form-container {
-      flex: 1;
-      padding: 20px;
-    }
-    
-    .login-container {
-      display: flex;
-      justify-content: center; 
-      align-items: center; 
-      height: 100vh; 
-    }
-    
-    .form-container {
-      width: 50%; 
-      padding: 20px;
-    }
-    
-    .image-container {
-      width: 50%;
-    }
-    
-    .image-container img {
-      max-width: 100%;
-      max-height: 100%;
-    }
-    
-    .options {
-      display: flex;
-      justify-content: center; 
-      margin-top: 20px;
-    }
-    
-    .option-box {
-      border: 1px solid #ccc; 
-      padding: 10px 20px; 
-      margin-right: 10px; 
-    }
-  
-     */
