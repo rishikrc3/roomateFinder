@@ -3,7 +3,7 @@ import RoomCard from "./components/RoomCard";
 import Search from "./Search";
 import "./Pages.css";
 import './components/RoomCard.css';
-
+import { Link } from "react-router-dom";
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
 
@@ -44,15 +44,21 @@ const Rooms = () => {
   return (
     <>
       <div className="top-bar">
-        <button className="fetch-button" onClick={handleRoomButtonClick}>Rooms</button>
-        <button className="fetch-button" onClick={handleRoommateButtonClick}>Roomamtes</button>
+        <button className="fetch-button" onClick={handleRoomButtonClick}>
+          Rooms
+        </button>
+        <button className="fetch-button" onClick={handleRoommateButtonClick}>
+          Roomamtes
+        </button>
         <Search className="search-bar" />
       </div>
       <section className="search-page">
         <div className="container">
           <div className="results">
             {rooms.map((room, index) => (
-              <RoomCard key={index} {...room} />
+              <Link to={"/rooms/" + room._id} className="custom-link">
+                <RoomCard key={index} {...room} />
+              </Link>
             ))}
           </div>
         </div>

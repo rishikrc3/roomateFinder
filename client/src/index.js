@@ -16,11 +16,12 @@ import Profile from './pages/profile';
 import Footer from './pages/Footer' ;
 import './index.css';
 import RoutingCard from './pages/routingCard';
+import RoomPage from './pages/components/Roompage';
 const appRouter = createBrowserRouter([
   {
-    path:"/",
-    element:<App/>,
-    children:[
+    path: "/",
+    element: <App />,
+    children: [
       {
         path: "/",
         element: <Home />,
@@ -39,32 +40,34 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/addListing",
-        element:<Card/>
-
+        element: <Card />,
       },
       {
-        path:"/routingCard",
-        element:<RoutingCard/>
+        path: "/routingCard",
+        element: <RoutingCard />,
       },
       {
-        path:"/needRoom",
-        element:<NeedRoom/>
+        path: "/needRoom",
+        element: <NeedRoom />,
       },
       {
-        path:"/needRoommate",
-        element:<NeedRoommate/>
+        path: "/needRoommate",
+        element: <NeedRoommate />,
       },
       {
-        path:"/profile",
-        element:<Profile/>
+        path: "/profile",
+        element: <Profile />,
       },
       {
-        path:"/footer",
-        element:<Footer/>
-      }
+        path: "/footer",
+        element: <Footer />,
+      },
+      {
+        path: "/rooms/:id",
+        element: <RoomPage/>
+      },
     ],
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
