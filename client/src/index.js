@@ -9,13 +9,13 @@ import LoginPage from './pages/Login';
 import Body from './pages/Body';
 import Home from './pages/Home';
 import Register from './pages/Register';
-import Rooms from './pages/Rooms';
 import Card from './pages/AddListing';
 import NeedRoom from './pages/needRoom';
 import NeedRoommate from './pages/needRoommate';
 import Profile from './pages/profile';
 import Footer from './pages/Footer' ;
 import './index.css';
+import RoutingCard from './pages/routingCard';
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -38,14 +38,13 @@ const appRouter = createBrowserRouter([
         element: <Register />,
       },
       {
-        path: "/rooms",
-        element:<Rooms/>
-
-      },
-      {
         path: "/addListing",
         element:<Card/>
 
+      },
+      {
+        path:"/routingCard",
+        element:<RoutingCard/>
       },
       {
         path:"/needRoom",

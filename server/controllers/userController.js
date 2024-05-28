@@ -2,6 +2,17 @@ const User = require('../models/User'); // Import the User model
 const jwt = require('jsonwebtoken'); // For JWT token generation
 const bcrypt = require('bcrypt'); // For password hashing
 const { validationResult } = require('express-validator'); // For request validation
+const mongoose = require('mongoose');
+const Grid = require('gridfs-stream');
+
+const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/MessMate'; // Your MongoDB URI
+const conn = mongoose.createConnection(mongoURI);
+
+let gfs;
+conn.once('open', () => {
+  gfs = Grid(conn.db, mongoose.mongo);
+  gfs.collection('uploads');
+});
 
 const userController = {
   // User registration
@@ -144,6 +155,44 @@ const userController = {
       res.status(500).json({ error: error.message });
     }
   },
+
+  // Upload user image
+  uploadImage: async (req, res) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({ message: 'No file uploaded' });
+      }
+
+      const user = await User.findById(req.userId);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found' });
+      }
+
+      // Update user's profile with the image filename
+      user.profileImage = req.file.filename;
+      await user.save();
+
+      res.status(200).json({ message: 'Image uploaded successfully', user });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  },
+
+  // Get user image
+  getImage: async (req, res) => {
+    try {
+      gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+        if (!file || file.length === 0) {
+          return res.status(404).json({ message: 'No file found' });
+        }
+
+        const readstream = gfs.createReadStream(file.filename);
+        readstream.pipe(res);
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
 };
 
 module.exports = userController;

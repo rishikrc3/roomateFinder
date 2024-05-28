@@ -1,0 +1,37 @@
+.room-details-container {
+    padding: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .room-card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .room-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+  }
+  
+  .room-card p {
+    margin: 8px 0;
+  }
+  
+  .room-card h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+  }
+  
+  .room-card ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .room-card ul li {
+    margin: 5px 0;
+  }
+  
