@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
-import { TextField, Button, InputLabel,  } from '@mui/material';
+import { TextField, Button, InputLabel } from '@mui/material';
 import loginImage from '../images/login.png';
-import './login.css'
-
+import './login.css';
 import axios from 'axios';
-// import './Pages.css';
-//import './Login.css';
 
 const LoginPage = () => {
-
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   });
-  //coo
+
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -21,33 +18,42 @@ const LoginPage = () => {
       ...formData,
       [name]: value,
     });
+
+    // Clear the error message when the user starts typing in the password field
+    if (name === 'password' && error) {
+      setError('');
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setError(''); // Clear previous error message
 
     try {
       const response = await axios.post("http://localhost:8000/api/login", formData);
-      const token = (response.data.token);
+      const token = response.data.token;
       localStorage.setItem("token", token);
       window.location.href = "/basic";
     } catch (error) {
+      if (error.response && error.response.status === 401) {
+        setError('Password is incorrect. Try again or change your password.');
+      } else {
+        setError('An error occurred. Please try again later.');
+      }
       console.error(error);
     }
-
   };
 
   return (
     <div className="login-container">
       <div className="image-container">
-        {<img src={loginImage} alt="Login" className='img-target' />}
+        <img src={loginImage} alt="Login" />
       </div>
       <div className="form-container">
         <h2 className="login-heading">Login</h2>
         <form onSubmit={handleSubmit}>
           <InputLabel htmlFor="email">Email Address</InputLabel>
           <TextField
-            // label="Email Address"
             type="email"
             name="email"
             value={formData.email}
@@ -56,12 +62,9 @@ const LoginPage = () => {
             fullWidth
             margin="normal"
             placeholder='abc@nsec.ac.in'
-            // style={{ '::placeholder': { fontWeight: 'bolder' } }}
-
           />
           <InputLabel htmlFor="password">Password</InputLabel>
           <TextField
-            // label="Password"
             type="password"
             name="password"
             value={formData.password}
@@ -71,19 +74,16 @@ const LoginPage = () => {
             margin="normal"
             className='password-text-field'
           />
-          <div className="forgot-password"><h4>Forgot your password? {/* <Link to="/reset">Reset</Link> */}</h4></div>
-
-          {/* //can you create a forgot password section here? */}
+          {error && <p className="error-message">{error}</p>}
+          <div className="forgot-password">
+            <h4>Forgot your password?</h4>
+            {/* <Link to="/reset">Reset</Link> */}
+          </div>
           <Button variant="contained" type="submit" className="login-button">
             Login
           </Button>
-          {/* <div className="options">
-            <a href="#" className="google-login">Continue with Google</a>
-            <a href="#" className="forgot-password">Forgot Password?</a>
-          </div> */}
         </form>
       </div>
-
     </div>
   );
 };

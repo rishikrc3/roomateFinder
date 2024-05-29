@@ -7,6 +7,7 @@ import {
   FormControl,
   InputLabel,
 } from "@mui/material";
+// import registerImage from "../images/register.png";
 import "./Register.css";
 
 const Register = () => {
@@ -33,8 +34,7 @@ const Register = () => {
     },
   });
 
-  const [error, setError] = useState("");
-  const [image ,setImage] = useState("");
+  const [error, setError] = useState(""); 
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -56,21 +56,10 @@ const Register = () => {
     // Send data to the server
     sendDataToServer();
   };
-  const data = new FormData();
-  data.append("image", image);
-  for (const key in formData) {
-    if (typeof formData[key] === "object") {
-      for (const subKey in formData[key]) {
-        data.append(`preferences[${subKey}]`, formData[key][subKey]);
-      }
-    } else {
-      data.append(key, formData[key]);
-    }
-  }
 
   const sendDataToServer = async () => {
     try {
-      const response = await fetch("http://localhost:8000/api/register", data,{
+      const response = await fetch("http://localhost:8000/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -95,7 +84,6 @@ const Register = () => {
       <div className="form-container">
         <h2 className="register-heading">Register</h2>
         <form onSubmit={handleSubmit}>
-          <input onChange={(e)=> setImage(e.target.files[0])}type="file"/>
           <TextField
             label="Name"
             type="text"

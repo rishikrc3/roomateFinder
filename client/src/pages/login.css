@@ -32,6 +32,14 @@
   text-align: left;
   font-weight: 650;
 }
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+.password-text-field {
+  margin-top: 10px;
+}
 
 form {
   display: flex;
