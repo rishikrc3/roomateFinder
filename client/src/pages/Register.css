@@ -29,6 +29,7 @@
 .register-button {
   margin-top: 20px;
   width: 100%;
+  background-color: #449ba2 !important;
 }
 
 @media screen and (max-width: 960px) {

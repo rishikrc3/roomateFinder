@@ -1,8 +1,7 @@
 
-
 .navbar {
     background: #637179;
-    height: 4rem;
+    height: 6vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,7 +9,7 @@
     position: sticky;
     top: 0;
     z-index: 999;
-    /* margin: 0 3rem; */
+    margin: 0 3rem;
   }
   
   .navbar-container {
@@ -19,7 +18,7 @@
     align-items: center;
     height: 80px;
     width: 90%;
-    /* max-width: 1500px; */
+    max-width: 1500px;
   }
   
   .navbar-logo {
