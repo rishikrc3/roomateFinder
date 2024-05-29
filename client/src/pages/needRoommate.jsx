@@ -32,6 +32,8 @@ const RoomForm = () => {
         }
       );
       console.log("Success:", response.data);
+      window.location.href = "/success";
+      
     } catch (error) {
       if (error.response) {
         console.error("Error Response Data:", error.response.data);

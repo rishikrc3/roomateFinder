@@ -5,7 +5,12 @@ import NeedRoommate from "../images/NeedRoommate.jpg";
 import "./AddListing.css";
 //created by sudipta
 const App = () => {
-  const handleClick = () => {
+  const handleClick1 = () => {
+    window.location.href = "/needRoom";
+    console.log("Card clicked!");
+  };
+  const handleClick2 = () => {
+    window.location.href = "/needRoommate";
     console.log("Card clicked!");
   };
 
@@ -19,13 +24,13 @@ const App = () => {
           image={NeedRoom}
           title="Need Room"
           description="with roomamte"
-          onClick={handleClick}
+          onClick={handleClick1}
         />
         <Card
           image={NeedRoommate}
           title="Need Roomamte"
           description="for my Room"
-          onClick={handleClick}
+          onClick={handleClick2}
         />
       </div>
     </div>
