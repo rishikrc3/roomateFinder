@@ -3,19 +3,13 @@ import "./AddListingCard.css";
 
 const Card = ({ image, title, description, onClick }) => {
   return (
-    <div className="card">
+    <div className="card" onClick={onClick}>
       <img src={image} alt={title} />
       <div className="card-content">
-        <h1>{title}</h1>
+        <h2 className="card-title">{title}</h2>
+        <p className="card-description">{description}</p>
       </div>
-      <div className="description">
-        <h2>{description}</h2>
-      </div>
-      <button className="card-button" onClick={onClick}>
-        Add Post
-      </button>
     </div>
   );
 };
-
 export default Card;
