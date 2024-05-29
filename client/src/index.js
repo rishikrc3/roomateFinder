@@ -16,6 +16,7 @@ import Profile from './pages/profile';
 import Footer from './pages/Footer' ;
 import './index.css';
 import RoutingCard from './pages/routingCard';
+import Success from './pages/successPage';
 const appRouter = createBrowserRouter([
   {
     path:"/",
@@ -53,6 +54,10 @@ const appRouter = createBrowserRouter([
       {
         path:"/needRoommate",
         element:<NeedRoommate/>
+      },
+      {
+        path: "/success",
+        element: <Success/>,
       },
       {
         path:"/profile",
