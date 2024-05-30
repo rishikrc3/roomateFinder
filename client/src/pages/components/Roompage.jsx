@@ -44,7 +44,7 @@ const RoomPage = () => {
           <p>Looking For: {roomData.lookingFor}</p>
           <p>Mess Name: {roomData.messName}</p>
           <p>Occupancy: {roomData.occupancy}</p>
-          <p>Rent: ${roomData.rent}</p>
+          <p>Rent: ₹{roomData.rent}</p>
 
           <h3 className={styles.sectionTitle}>Amenities</h3>
           <ul className={styles.detailsList}>

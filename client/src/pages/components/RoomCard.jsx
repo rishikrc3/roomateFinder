@@ -9,6 +9,7 @@ const RoomCard = ({ fullName, messName, location, rent, lookingFor }) => {
       <p className="room-card-detail"><strong>Location:</strong> {location}</p>
       <p className="room-card-detail"><strong>Rent:</strong> {rent}</p>
       <p className="room-card-detail"><strong>Looking For:</strong> {lookingFor}</p>
+      <p className="room-card-detail"><strong>Looking For:</strong> Roommate </p>
     </div>
   );
 };

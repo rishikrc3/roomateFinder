@@ -6,11 +6,11 @@ import "./AddListing.css";
 
 const App = () => {
   const handleClick1 = () => {
-    window.location.href = "/needRoom";
+    window.location.href = "/needRoommate";
     console.log("Card clicked!");
   };
   const handleClick2 = () => {
-    window.location.href = "/needRoommate";
+    window.location.href = "/needRoom";
     console.log("Card clicked!");
   };
 

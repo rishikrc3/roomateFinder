@@ -3,9 +3,9 @@ const mongoose = require('mongoose');
 const RoomSchema = new mongoose.Schema({
   messName: { type: String, required: true },
   location: { type: String, required: true },
-  lookingFor: { type: String, enum: ['male', 'female', 'any'], default: 'any' },
+  lookingFor: { type: String, enum: ['Male', 'Female', 'Any'], default: 'Any' },
   rent: { type: Number, required: true },
-  occupancy: { type: String, enum: ['double', 'triple'], default: 'double' },
+  occupancy: { type: String, enum: ['Double', 'Triple'], default: 'Double' },
   contactNo: { type: Number, required: true },
   highlights: {
     attachedWashroom: { type: Boolean, default: false },
