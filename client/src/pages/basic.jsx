@@ -57,7 +57,7 @@ const Rooms = () => {
           <div className="results">
             {rooms.map((room, index) => (
               <Link to={"/rooms/" + room._id} className="custom-link">
-                <RoomCard key={index} {...room} />
+                <RoomCard key={room._id} {...room} />
               </Link>
             ))}
           </div>
