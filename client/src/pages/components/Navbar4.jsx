@@ -13,7 +13,7 @@ const NewNavbar = () => {
           </Typography>
         </Link>
         <div className="navbar-links">
-          <Link to="/add-post" className="nav-link">
+          <Link to="/addListing" className="nav-link">
             <Button color="inherit">+ Add Post</Button>
           </Link>
           <Link to="/profile" className="nav-link">
