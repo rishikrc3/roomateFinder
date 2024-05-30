@@ -1,0 +1,65 @@
+/* Navbar.css */
+
+.navbar {
+    background-color: #72B2B7 !important;
+    width: 100%;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+}
+
+.brand-link {
+    text-decoration: none;
+    color: inherit;
+    margin-left: 5vw;
+    /* 5vw space on the left */
+}
+
+.brand {
+    font-size: 1.75rem;
+    /* Increased font size */
+}
+
+.brand-highlight {
+    color: #FCB842;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 1rem;
+    margin-right: 5vw;
+    /* 5vw space on the right */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+}
+
+@media (max-width: 960px) {
+
+    .toolbar {
+        flex-direction: row;
+        /* Ensure horizontal alignment */
+        justify-content: space-between;
+        /* Keep spacing consistent */
+    }
+
+
+
+    .navbar-links {
+        width: auto;
+    }
+
+    .brand-link{
+        margin-left: 0;
+    }
+
+    .navbar-links{
+        margin-right: 0;
+    }
+}
