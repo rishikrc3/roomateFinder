@@ -1,14 +1,20 @@
 .login-container {
   width: 90%;
-  height: 100vh;
+  height: 96vh;
+  margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 
 .image-container {
   width: 50%;
-  align-items: center;
+  /* justify-self: start; */
+}
+
+
+.img-target{
+  width: 45vw;
 }
 
 .form-container {
@@ -22,6 +28,14 @@
   margin-bottom: 1.5rem;
   text-align: left;
   font-weight: 650;
+}
+.error-message {
+  color: red;
+  margin-top: 10px;
+  text-align: center;
+}
+.password-text-field {
+  margin-top: 10px;
 }
 
 form {
@@ -37,12 +51,13 @@ form {
 .password-text-field {
   margin-bottom: 4rem;
 }
-.forgot-password{
-  display: flex;
-  justify-content: end;
+
+h4 {
+  text-align: right;
+  display: block;
 }
 
-h4:hover{
+h4:hover {
   color: lightcoral;
   cursor: pointer;
 }
@@ -59,14 +74,20 @@ input {
   background-color: #449ba2 !important;
 }
 
-h4 {
-  text-align: right;
-}
 
-@media (max-width: 600px) {
+@media screen and (max-width: 960px) {
   .login-container {
     flex-direction: column;
   }
+
+  .image-container {
+    display: flex;
+    justify-content: center;
+  }
+
+  /* img {
+    width: 50vw;
+  } */
 
   .image-container,
   .form-container {
@@ -76,6 +97,7 @@ h4 {
   .login-button {
     width: 100%;
   }
+
 }
 
 

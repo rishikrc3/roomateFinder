@@ -45,7 +45,7 @@ function Navbar() {
                 Register
               </Link>
             </li>
-          </ul>
+          </ul>{}
         </div>
       </nav>
     </>
