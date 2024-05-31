@@ -7,13 +7,13 @@ const NewNavbar = () => {
   return (
     <AppBar position="static" className="navbar">
       <Toolbar className="toolbar">
-        <Link to="/" className="brand-link">
+        <Link to="/basic" className="brand-link">
           <Typography variant="h4" component="div" className="brand">
             <span className="brand-highlight">N</span>est
           </Typography>
         </Link>
         <div className="navbar-links">
-          <Link to="/add-post" className="nav-link">
+          <Link to="/addListing" className="nav-link">
             <Button color="inherit">+ Add Post</Button>
           </Link>
           <Link to="/profile" className="nav-link">
