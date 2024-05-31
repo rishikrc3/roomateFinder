@@ -5,7 +5,7 @@ const RequirementSchema = new mongoose.Schema({
   location: { type: String, required: true },
   rent: { type: Number, required: true },
   contactNo: { type: Number, required: true },
-  lookingFor: { type: String, enum: ['male', 'female', 'any'], default: 'any' },
+  lookingFor: { type: String, enum: ['Male', 'Female', 'any'], default: 'any' },
   preferenceStream: {type: String, required: true},
   description: { type: String},
 });

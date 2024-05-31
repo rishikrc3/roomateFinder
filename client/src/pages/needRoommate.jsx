@@ -60,7 +60,7 @@ const RoomForm = () => {
         className="form-content"
       >
         <Form.Item
-          label="Location"
+          label="Preferrred Location"
           name="location"
           rules={[{ required: true, message: "Please input the location!" }]}
         >
@@ -68,7 +68,7 @@ const RoomForm = () => {
         </Form.Item>
 
         <Form.Item
-          label="Rent"
+          label="Affordable Rent"
           name="rent"
           rules={[{ required: true, message: "Please input the rent!" }]}
         >
