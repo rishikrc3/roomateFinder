@@ -1,28 +1,42 @@
-
 .container {
-  max-width: 800px;
-  margin: 0 auto;
+  max-width: 1000px;
+  margin: 2rem ;
   padding: 20px;
+  background-color: #fff;
+  border: 1px solid #72B2B7;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   font-family: Arial, sans-serif;
 }
 
 .header {
+  color: #FCB842;
   text-align: center;
   margin-bottom: 20px;
 }
 
 .roomDetails {
-  background: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+}
+
+.leftColumn {
+  flex: 1;
+  margin-right: 20px;
+  border-right: 1px solid #72B2B7;
+  padding-right: 20px;
+}
+
+.rightColumn {
+  flex: 2;
+  padding-left: 20px;
 }
 
 .sectionTitle {
+  color: #72B2B7;
   margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 1.2em;
-  color: #333;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .detailsList {
@@ -31,13 +45,27 @@
 }
 
 .detailsList li {
-  margin: 5px 0;
-  padding: 5px 10px;
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
+  margin-bottom: 10px;
 }
 
-.detailsList li:not(:last-child) {
-  margin-bottom: 10px;
+.detailsColumns {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.detailsColumn {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.detailsColumn:last-child {
+  margin-right: 0;
+}
+
+.loading, .error {
+  text-align: center;
+  color: grey;
+  font-size: 18px;
+  margin-top: 20px;
 }

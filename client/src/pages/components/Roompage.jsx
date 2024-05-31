@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import styles from "./RoomPage.css"; // Import the CSS module
+import "./RoomPage.css"; // Import the CSS file
 
 const RoomPage = () => {
   const { id } = useParams();
@@ -28,46 +28,55 @@ const RoomPage = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <div className="error">Error: {error}</div>;
   }
 
   return (
-    <div className={styles.container}>
-      <h1 className={styles.header}>Room Page</h1>
+    <div className="container">
+      <h1 className="header">Room Page</h1>
       {roomData && (
-        <div className={styles.roomDetails}>
-          <h2>Location: {roomData.location}</h2>
-          <p>Looking For: {roomData.lookingFor}</p>
-          <p>Mess Name: {roomData.messName}</p>
-          <p>Occupancy: {roomData.occupancy}</p>
-          <p>Rent: ₹{roomData.rent}</p>
+        <div className="roomDetails">
+          <div className="leftColumn">
+            <h3 className="sectionTitle">Created By</h3>
+            <p><strong>Name:</strong> {roomData.createdBy.name}</p>
+            <p><strong>Email:</strong> {roomData.createdBy.email}</p>
+            <p><strong>Gender:</strong> {roomData.createdBy.gender}</p>
+          </div>
+          <div className="rightColumn">
+            <h2>Location: {roomData.location}</h2>
+            <p><strong>Looking For:</strong> {roomData.lookingFor}</p>
+            <p><strong>Mess Name:</strong> {roomData.messName}</p>
+            <p><strong>Occupancy:</strong> {roomData.occupancy}</p>
+            <p><strong>Rent:</strong> ₹{roomData.rent}</p>
 
-          <h3 className={styles.sectionTitle}>Amenities</h3>
-          <ul className={styles.detailsList}>
-            {Object.entries(roomData.amenities).map(([key, value]) => (
-              <li key={key}>
-                {key}: {value ? "Yes" : "No"}
-              </li>
-            ))}
-          </ul>
+            <div className="detailsColumns">
+              <div className="detailsColumn">
+                <h3 className="sectionTitle">Amenities</h3>
+                <ul className="detailsList">
+                  {Object.entries(roomData.amenities).map(([key, value]) => (
+                    <li key={key}>
+                      {key}: {value ? "Yes" : "No"}
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
-          <h3 className={styles.sectionTitle}>Highlights</h3>
-          <ul className={styles.detailsList}>
-            {Object.entries(roomData.highlights).map(([key, value]) => (
-              <li key={key}>
-                {key}: {value ? "Yes" : "No"}
-              </li>
-            ))}
-          </ul>
-
-          <h3 className={styles.sectionTitle}>Created By</h3>
-          <p>Name: {roomData.createdBy.name}</p>
-          <p>Email: {roomData.createdBy.email}</p>
-          <p>Gender: {roomData.createdBy.gender}</p>
+              <div className="detailsColumn">
+                <h3 className="sectionTitle">Highlights</h3>
+                <ul className="detailsList">
+                  {Object.entries(roomData.highlights).map(([key, value]) => (
+                    <li key={key}>
+                      {key}: {value ? "Yes" : "No"}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
