@@ -40,7 +40,7 @@
   padding: 10px 20px;
   font-size: 16px;
   color: #fff;
-  background-color: #007bff;
+  background-color: #72B2B7 ;
   border: none;
   border-radius: 7px;
   cursor: pointer;
@@ -48,5 +48,5 @@
 }
 
 .search-btn:hover {
-  background-color: #0056b3;
+  background-color: #41878c;
 }

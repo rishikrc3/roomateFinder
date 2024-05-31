@@ -1,32 +1,41 @@
 import React, { useEffect, useState } from "react";
 import RoomCard from "./components/RoomCard";
-import RoomMateCard from "./components/RoomMateCard"; // Import RoomMateCard component
 import Search from "./Search";
 import "./Pages.css";
 import './components/RoomCard.css';
 import { Link } from "react-router-dom";
-
 const Rooms = () => {
-  const [data, setData] = useState([]);
-  const [isRoomData, setIsRoomData] = useState(true); // State to track whether room data or roommate data is being displayed
+  const [rooms, setRooms] = useState([]);
 
-  const fetchData = async (url) => {
+  const fetchRoom = async () => {
     try {
-      const response = await fetch(url);
+      const response = await fetch("http://localhost:8000/api/rooms");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
       console.log("Response:", data);
-      setData(data);
+      setRooms(data);
+    } catch (error) {
+      console.error("Error fetching data:", error.message);
+    }
+  };
+  const fetchRoomMate = async () => {
+    try {
+      const response = await fetch("http://localhost:8000/api/requirements");
+      if (!response.ok) {
+        throw new Error("Failed to fetch data");
+      }
+      const data = await response.json();
+      console.log("Response:", data);
+      setRooms(data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
   };
 
   const handleRoomButtonClick = () => {
-    fetchData("http://localhost:8000/api/rooms");
-    setIsRoomData(true); // Set state to indicate room data is being displayed
+    fetchRoom();
   };
   const handleRoommateButtonClick = () => {
     fetchRoomMate();
@@ -48,13 +57,9 @@ const Rooms = () => {
       <section className="search-page">
         {/* <div className="container"> */}
           <div className="results">
-            {data.map((item) => (
-              <Link key={item._id} to={isRoomData ? "/rooms/" + item._id : "/roommates/" + item._id} className="custom-link">
-                {isRoomData ? (
-                  <RoomCard {...item} />
-                ) : (
-                  <RoomMateCard {...item} />
-                )}
+            {rooms.map((room, index) => (
+              <Link to={"/rooms/" + room._id} className="custom-link">
+                <RoomCard key={room._id} {...room} />
               </Link>
             ))}
           </div>

@@ -19,13 +19,6 @@ const Search = () => {
   return (
     <div className="search-bar-container">
       <div className="search">
-        <input
-          type="text"
-          placeholder="Search Stream like 'CSE'..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-input"
-        />
         <div className="select-wrapper">
           <select
             className="gender-select"

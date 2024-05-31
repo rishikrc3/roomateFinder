@@ -16,22 +16,11 @@
   transform: translateY(-10px);
 }
 
-.room-card-title {
-  font-size: 20px;
-  margin-bottom: 10px;
-  color: #333333;
-}
-
 .room-card-detail {
   font-size: 16px;
-  color: #555555;
+  color: black;
   margin: 5px 0;
   text-decoration: none;
 }
 
-.results {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  /* justify-content: space-around; */
-}
+
