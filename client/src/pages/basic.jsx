@@ -37,23 +37,25 @@ const Rooms = () => {
   const handleRoomButtonClick = () => {
     fetchRoom();
   };
-  const handleRoommateButtonClick = () =>{
+  const handleRoommateButtonClick = () => {
     fetchRoomMate();
   };
 
   return (
-    <>
+    <div className="basicPage-container">
       <div className="top-bar">
-        <button className="fetch-button" onClick={handleRoomButtonClick}>
-          Rooms
-        </button>
-        <button className="fetch-button" onClick={handleRoommateButtonClick}>
-          Roomamtes
-        </button>
+        <div className="bar-left">
+          <button className="fetch-button margin-right" onClick={handleRoomButtonClick}>
+            Rooms
+          </button>
+          <button className="fetch-button" onClick={handleRoommateButtonClick}>
+            Roomamtes
+          </button>
+        </div>
         <Search className="search-bar" />
       </div>
       <section className="search-page">
-        <div className="container">
+        {/* <div className="container"> */}
           <div className="results">
             {rooms.map((room, index) => (
               <Link to={"/rooms/" + room._id} className="custom-link">
@@ -61,9 +63,9 @@ const Rooms = () => {
               </Link>
             ))}
           </div>
-        </div>
+        {/* </div> */}
       </section>
-    </>
+    </div>
   );
 };
 
