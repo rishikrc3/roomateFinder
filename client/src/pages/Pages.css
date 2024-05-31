@@ -1,4 +1,10 @@
 /* Rooms.css */
+.basicPage-container{
+  width: 90%;
+  margin: 0 auto;
+  margin-bottom: 1rem;
+
+}
 
 .top-bar {
   display: flex;
@@ -8,6 +14,10 @@
   background-color: #f8f9fa;
   border-bottom: 1px solid #dee2e6;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.margin-right{
+  margin-right: 1rem;
 }
 
 .fetch-button {
@@ -31,13 +41,20 @@
   margin-left: 20px;
 }
 
-.search-page .container {
-  padding: 20px;
+.search-page{
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+
+.search-page  {
+  padding: 2rem 4rem;
 }
 
 .results {
+  margin: 2rem auto;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 20px;
 }
 
