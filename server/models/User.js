@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
 
+
 const UserSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: {
@@ -29,11 +30,13 @@ const UserSchema = new mongoose.Schema({
     musicLover: { type: Boolean, default: false },
     nonSmoker: { type: Boolean, default: true },
   },
-  from: { type: String, required: true },
-  stream: { type: String, required: true },
-  yearOfPassing: { type: Number, required: true },
+  from: { type: String, required: false },
+  stream: { type: String, enum: ['AEIE', 'BME', 'CSE', 'ECE', 'IT', 'EE', 'CE', 'CSBS', 'ME', 'CSE(AIMLL)'], required: true },
+  yearOfPassing: { type: Number, required: true, min: 1900, max: 2023 },
   profileImage: { type: String }, // Add profileImage field
 });
+
+
 
 // Hash password before saving
 UserSchema.pre('save', async function (next) {
