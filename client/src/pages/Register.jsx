@@ -10,6 +10,23 @@ import {
 // import registerImage from "../images/register.png";
 import "./Register.css";
 
+const minYear = 2000;
+const maxYear = 2050;
+const years = Array.from({ length: maxYear - minYear + 1 }, (_, i) => minYear + i);
+
+const streamData = [
+  { value: "AEIE", label: "AEIE" },
+  { value: "BME", label: "BME" },
+  { value: "CSE", label: "CSE" },
+  { value: "ECE", label: "ECE" },
+  { value: "IT", label: "IT" },
+  { value: "EE", label: "EE" },
+  { value: "CE", label: "CE" },
+  { value: "CSBS", label: "CSBS" },
+  { value: "ME", label: "ME" },
+  { value: "CSE(AIMLL)", label: "CSE(AIMLL)" },
+];
+
 const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -34,7 +51,7 @@ const Register = () => {
     },
   });
 
-  const [error, setError] = useState(""); 
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -55,6 +72,8 @@ const Register = () => {
     console.log(formData);
     // Send data to the server
     sendDataToServer();
+    window.location.href = "/basic";
+
   };
 
   const sendDataToServer = async () => {
@@ -72,12 +91,15 @@ const Register = () => {
       console.log("Response:", responseData);
       if (response.ok && responseData.token) {
         localStorage.setItem("token", responseData.token);
-        // window.location.href="/rooms";
+        window.location.href = "/basic";
+
       }
     } catch (error) {
       console.error("Error:", error);
     }
   };
+
+
 
   return (
     <div className="register-container">
@@ -114,26 +136,39 @@ const Register = () => {
             fullWidth
             margin="normal"
           />
-          <TextField
-            label="Stream"
-            type="text"
-            name="stream"
-            value={formData.stream}
-            onChange={handleChange}
-            required
-            fullWidth
-            margin="normal"
-          />
-          <TextField
-            label="Year of Passing"
-            type="text"
-            name="yearOfPassing"
-            value={formData.yearOfPassing}
-            onChange={handleChange}
-            required
-            fullWidth
-            margin="normal"
-          />
+
+          <FormControl fullWidth margin="normal" required>
+            <InputLabel>Year of Passing</InputLabel>
+            <Select
+              value={formData.yearOfPassing}
+              onChange={handleChange}
+              name="yearOfPassing"
+              MenuProps={{
+                anchorOrigin: {
+                  vertical: "bottom",
+                  horizontal: "left",
+                },
+                transformOrigin: {
+                  vertical: "top",
+                  horizontal: "left",
+                },
+                getContentAnchorEl: null,
+                PaperProps: {
+                  style: {
+                    maxHeight: 200,
+                    width: 80,
+                  },
+                },
+              }}
+            >
+              {years.map((year) => (
+                <MenuItem key={year} value={year}>
+                  {year}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+
           <FormControl fullWidth margin="normal" required>
             <InputLabel>Gender</InputLabel>
             <Select
@@ -143,6 +178,37 @@ const Register = () => {
             >
               <MenuItem value="male">Male</MenuItem>
               <MenuItem value="female">Female</MenuItem>
+            </Select>
+          </FormControl>
+          <FormControl fullWidth margin="normal" required>
+            <InputLabel>Stream</InputLabel>
+            <Select
+              value={formData.stream}
+              onChange={handleChange}
+              name="stream"
+              MenuProps={{
+                anchorOrigin: {
+                  vertical: "bottom",
+                  horizontal: "left",
+                },
+                transformOrigin: {
+                  vertical: "top",
+                  horizontal: "left",
+                },
+                getContentAnchorEl: null,
+                PaperProps: {
+                  style: {
+                    maxHeight: 200,
+                    width: 250,
+                  },
+                },
+              }}
+            >
+              {streamData.map((stream) => (
+                <MenuItem key={stream.value} value={stream.value}>
+                  {stream.label}
+                </MenuItem>
+              ))}
             </Select>
           </FormControl>
           <TextField
