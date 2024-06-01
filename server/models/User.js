@@ -32,7 +32,7 @@ const UserSchema = new mongoose.Schema({
   },
   from: { type: String, required: false },
   stream: { type: String, enum: ['AEIE', 'BME', 'CSE', 'ECE', 'IT', 'EE', 'CE', 'CSBS', 'ME', 'CSE(AIMLL)'], required: true },
-  yearOfPassing: { type: Number, required: true, min: 1900, max: 2023 },
+  yearOfPassing: { type: Number, required: true, min: 2000, max: 2050 },
   profileImage: { type: String }, // Add profileImage field
 });
 
