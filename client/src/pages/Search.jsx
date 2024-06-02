@@ -3,12 +3,11 @@ import "./search.css";
 import "./Pages.css";
 
 const Search = () => {
-  const [searchTerm, setSearchTerm] = useState("");
   const [selectedGender, setSelectedGender] = useState("");
 
   const handleSearch = () => {
     // Implement search functionality here
-    console.log("Search Term:", searchTerm, "Selected Gender:", selectedGender);
+    console.log("Selected Gender:", selectedGender);
   };
 
   const handleGenderChange = (event) => {

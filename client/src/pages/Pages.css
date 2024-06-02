@@ -62,3 +62,10 @@
   text-decoration: none; 
   color: inherit;
 }
+.active {
+  background-color: #285d60;
+}
+
+.inactive {
+  background-color: #72B2B7;
+}
