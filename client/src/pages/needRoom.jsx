@@ -109,7 +109,7 @@ const RoomForm = () => {
         <Form.Item label="Highlights" name="highlights">
           <div className="form-switch-group">
             <Form.Item
-              name={["highlights", "attachedWashroom"]}
+              name={["highlights", "AttachedWashroom"]}
               valuePropName="checked"
               noStyle
             >
@@ -120,7 +120,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["highlights", "marketNearby"]}
+              name={["highlights", "MarketNearby"]}
               valuePropName="checked"
               noStyle
             >
@@ -131,7 +131,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["highlights", "closeToMetroStation"]}
+              name={["highlights", "CloseToMetroStation"]}
               valuePropName="checked"
               noStyle
             >
@@ -142,7 +142,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["highlights", "publicTransportNearby"]}
+              name={["highlights", "PublicTransportNearby"]}
               valuePropName="checked"
               noStyle
             >
@@ -153,7 +153,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["highlights", "noRestriction"]}
+              name={["highlights", "NoRestriction"]}
               valuePropName="checked"
               noStyle
             >
@@ -164,7 +164,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["highlights", "gymNearby"]}
+              name={["highlights", "GymNearby"]}
               valuePropName="checked"
               noStyle
             >
@@ -175,7 +175,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["highlights", "housekeeping"]}
+              name={["highlights", "Housekeeping"]}
               valuePropName="checked"
               noStyle
             >
@@ -191,7 +191,7 @@ const RoomForm = () => {
         <Form.Item label="Amenities" name="amenities">
           <div className="form-switch-group">
             <Form.Item
-              name={["amenities", "tv"]}
+              name={["amenities", "Tv"]}
               valuePropName="checked"
               noStyle
             >
@@ -202,7 +202,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["amenities", "wifi"]}
+              name={["amenities", "Wifi"]}
               valuePropName="checked"
               noStyle
             >
@@ -213,7 +213,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["amenities", "fridge"]}
+              name={["amenities", "Fridge"]}
               valuePropName="checked"
               noStyle
             >
@@ -224,7 +224,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["amenities", "kitchen"]}
+              name={["amenities", "Kitchen"]}
               valuePropName="checked"
               noStyle
             >
@@ -235,7 +235,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["amenities", "powerBackup"]}
+              name={["amenities", "PowerBackup"]}
               valuePropName="checked"
               noStyle
             >
@@ -246,7 +246,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["amenities", "cook"]}
+              name={["amenities", "Cook"]}
               valuePropName="checked"
               noStyle
             >
@@ -257,7 +257,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["amenities", "parking"]}
+              name={["amenities", "Parking"]}
               valuePropName="checked"
               noStyle
             >
@@ -268,7 +268,7 @@ const RoomForm = () => {
               />
             </Form.Item>
             <Form.Item
-              name={["amenities", "ac"]}
+              name={["amenities", "Ac"]}
               valuePropName="checked"
               noStyle
             >

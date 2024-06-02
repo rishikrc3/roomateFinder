@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
 import RoomCard from "./components/RoomCard";
+import RoomMateCard from './components/RoomMateCard';
 import Search from "./Search";
 import "./Pages.css";
-import './components/RoomCard.css';
 import { Link } from "react-router-dom";
+
 const Rooms = () => {
   const [rooms, setRooms] = useState([]);
+  const [roommates, setRoommates] = useState([]);
+  const [displayType, setDisplayType] = useState('rooms'); // default display type is 'rooms'
 
   const fetchRoom = async () => {
     try {
@@ -28,17 +31,22 @@ const Rooms = () => {
       }
       const data = await response.json();
       console.log("Response:", data);
-      setRooms(data);
+      setRoommates(data);
     } catch (error) {
       console.error("Error fetching data:", error.message);
     }
   };
 
+  useEffect(() => {
+    fetchRoom(); // fetch rooms data on component mount
+  }, []);
+
   const handleRoomButtonClick = () => {
-    fetchRoom();
+    setDisplayType('rooms');
   };
   const handleRoommateButtonClick = () => {
-    fetchRoomMate();
+    fetchRoomMate(); // fetch roommates data when button is clicked
+    setDisplayType('roommates');
   };
 
   return (
@@ -55,15 +63,18 @@ const Rooms = () => {
         <Search className="search-bar" />
       </div>
       <section className="search-page">
-        {/* <div className="container"> */}
-          <div className="results">
-            {rooms.map((room, index) => (
-              <Link to={"/rooms/" + room._id} className="custom-link">
-                <RoomCard key={room._id} {...room} />
-              </Link>
-            ))}
-          </div>
-        {/* </div> */}
+        <div className="results">
+          {displayType === 'rooms' && rooms.map((room, index) => (
+            <Link to={"/rooms/" + room._id} className="custom-link">
+              <RoomCard key={room._id} {...room} />
+            </Link>
+          ))}
+          {displayType === 'roommates' && roommates.map((roommate, index) => (
+            <Link to={"/roommates/" + roommate._id} className="custom-link">
+              <RoomMateCard key={roommate._id} {...roommate} />
+            </Link>
+          ))}
+        </div>
       </section>
     </div>
   );

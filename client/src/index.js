@@ -15,8 +15,8 @@ import NeedRoommate from './pages/needRoommate';
 import Profile from './pages/profile';
 import Footer from './pages/Footer' ;
 import './index.css';
-import RoutingCard from './pages/routingCard';
 import RoomPage from './pages/components/Roompage';
+import RoommatePage from './pages/components/RoommatePage';
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -43,10 +43,6 @@ const appRouter = createBrowserRouter([
         element: <Card />,
       },
       {
-        path: "/routingCard",
-        element: <RoutingCard />,
-      },
-      {
         path: "/needRoom",
         element: <NeedRoom />,
       },
@@ -66,6 +62,10 @@ const appRouter = createBrowserRouter([
         path: "/rooms/:id",
         element: <RoomPage/>
       },
+      {
+        path: "/roommates/:id",
+        element: <RoommatePage/>
+      }
     ],
   },
 ]);
