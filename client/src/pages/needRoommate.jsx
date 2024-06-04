@@ -1,7 +1,7 @@
 import React from "react";
-import { Form, Input, InputNumber, Button, Select } from "antd";
+import { Form, Input, InputNumber, Switch, Button, Select } from "antd";
 import axios from "axios";
-import "./needRoom.css";
+import "./needRoommate.css";
 
 const { Option } = Select;
 
@@ -9,52 +9,13 @@ const RoomForm = () => {
   const [form] = Form.useForm();
 
   const onFinish = async (values) => {
-    // const token = localStorage.getItem("token");
-
-    // if (!token) {
-    //   console.error("No token found in local storage.");
-    //   alert("Authorization token is missing. Please log in again.");
-    //   return;
-    // }
-
-    // console.log("Form Values:", JSON.stringify(values));
-    // console.log("Token:", token);
-
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:8000/api/requirements/",
-    //     JSON.stringify(values),
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   console.log("Success:", response.data);
-    //   window.location.href = "/success";
-      
-    // } catch (error) {
-    //   if (error.response) {
-    //     console.error("Error Response Data:", error.response.data);
-    //     console.error("Error Response Status:", error.response.status);
-    //     console.error("Error Response Headers:", error.response.headers);
-    //     if (error.response.status === 401) {
-    //       alert("Unauthorized: Invalid token. Please log in again.");
-    //     }
-    //   } else if (error.request) {
-    //     console.error("Error Request:", error.request);
-    //   } else {
-    //     console.error("Error Message:", error.message);
-    //   }
-    // }
     console.log("Form Values:", JSON.stringify(values));
     const token = localStorage.getItem("token");
     console.log("Token:", token);
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/api/requirements/",
+        "http://localhost:8000/api/rooms/",
         JSON.stringify(values),
         {
           headers: {
@@ -80,7 +41,8 @@ const RoomForm = () => {
 
   return (
     <div className="form-wrapper">
-      <h2 className="form-title">Create a Room Requirement</h2>
+      <h2 className="form-title">Add Your Requirement</h2>
+      <p className="paragraph">To find a compatible roommate</p>
       <Form
         form={form}
         name="room_form"
@@ -88,28 +50,17 @@ const RoomForm = () => {
         className="form-content"
       >
         <Form.Item
-          label="Preferrred Location"
-          name="location"
-          rules={[{ required: true, message: "Please input the location!" }]}
+          label="Mess Name"
+          name="messName"
+          rules={[{ required: true, message: "Please input the mess name!" }]}
         >
           <Input className="form-input" />
         </Form.Item>
 
         <Form.Item
-          label="Affordable Rent"
-          name="rent"
-          rules={[{ required: true, message: "Please input the rent!" }]}
-        >
-          <InputNumber min={0} className="form-input" />
-        </Form.Item>
-
-        <Form.Item
-          label="Contact No."
-          name="contactNo"
-          rules={[
-            { required: true, message: "Please input your contact number!" },
-            { pattern: /^[0-9]{10}$/, message: "Contact number must be 10 digits long!" }
-          ]}
+          label="Location"
+          name="location"
+          rules={[{ required: true, message: "Please input the location!" }]}
         >
           <Input className="form-input" />
         </Form.Item>
@@ -126,23 +77,219 @@ const RoomForm = () => {
         </Form.Item>
 
         <Form.Item
-          label="Preference Stream"
-          name="preferenceStream"
-          rules={[{ required: true, message: "Please input the preference stream!" }]}
+          label="Rent"
+          name="rent"
+          rules={[{ required: true, message: "Please input the rent!" }]}
+        >
+          <InputNumber min={0} className="form-input" />
+        </Form.Item>
+
+        <Form.Item
+          label="Occupancy"
+          name="occupancy"
+          rules={[{ required: true, message: "Please input the occupancy!" }]}
+        >
+          <Select className="form-input">
+            <Option value="Double">Double</Option>
+            <Option value="Triple">Triple</Option>
+          </Select>
+        </Form.Item>
+
+        <Form.Item
+          label="Contact No."
+          name="contactNo"
+          rules={[
+            { required: true, message: "Please input your contact number!" },
+            { pattern: /^[0-9]{10}$/, message: "Contact number must be 10 digits long!" }
+          ]}
         >
           <Input className="form-input" />
         </Form.Item>
 
-        <Form.Item
-          label="Description"
-          name="description"
-          rules={[{ required: true, message: "Please input the description!" }]}
-        >
-          <Input.TextArea rows={4} className="form-input" />
+
+        <Form.Item label="Highlights" name="highlights">
+          <div className="form-switch-group">
+            <Form.Item
+              name={["highlights", "AttachedWashroom"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Attached Washroom"
+                unCheckedChildren="No Attached Washroom"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["highlights", "MarketNearby"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Market Nearby"
+                unCheckedChildren="No Market Nearby"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["highlights", "CloseToMetroStation"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Close to Metro"
+                unCheckedChildren="Not Close to Metro"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["highlights", "PublicTransportNearby"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Public Transport Nearby"
+                unCheckedChildren="No Public Transport Nearby"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["highlights", "NoRestriction"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="No Restriction"
+                unCheckedChildren="Has Restriction"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["highlights", "GymNearby"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Gym Nearby"
+                unCheckedChildren="No Gym Nearby"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["highlights", "Housekeeping"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Housekeeping"
+                unCheckedChildren="No Housekeeping"
+                className="form-switch"
+              />
+            </Form.Item>
+          </div>
+        </Form.Item>
+
+        <Form.Item label="Amenities" name="amenities">
+          <div className="form-switch-group">
+            <Form.Item
+              name={["amenities", "Tv"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="TV"
+                unCheckedChildren="No TV"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["amenities", "Wifi"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="WiFi"
+                unCheckedChildren="No WiFi"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["amenities", "Fridge"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Fridge"
+                unCheckedChildren="No Fridge"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["amenities", "Kitchen"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Kitchen"
+                unCheckedChildren="No Kitchen"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["amenities", "PowerBackup"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Power Backup"
+                unCheckedChildren="No Power Backup"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["amenities", "Cook"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Cook"
+                unCheckedChildren="No Cook"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["amenities", "Parking"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="Parking"
+                unCheckedChildren="No Parking"
+                className="form-switch"
+              />
+            </Form.Item>
+            <Form.Item
+              name={["amenities", "Ac"]}
+              valuePropName="checked"
+              noStyle
+            >
+              <Switch
+                checkedChildren="AC"
+                unCheckedChildren="No AC"
+                className="form-switch"
+              />
+            </Form.Item>
+          </div>
         </Form.Item>
 
         <Form.Item>
-        <button className="form-submit-button">Submit</button> 
+          <Button
+            type="primary"
+            htmlType="submit"
+            className="form-submit-button"
+          >
+            Submit
+          </Button>
         </Form.Item>
       </Form>
     </div>
