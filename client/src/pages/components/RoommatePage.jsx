@@ -44,13 +44,13 @@ const RoommatePage = () => {
             <h3 className="sectionTitle">Post Created By</h3>
             <p><strong>Name:</strong> {roommateData.userId.name}</p>
             <p><strong>Email:</strong> {roommateData.userId.email}</p>
+            <p><strong>Contact No:</strong> {roommateData.contactNo}</p>
             <p><strong>Gender:</strong> {roommateData.userId.gender}</p>
           </div>
           <div className="rightColumn">
             <h2>Location: {roommateData.location}</h2>
             <p><strong>Looking For:</strong> {roommateData.lookingFor}</p>
             <p><strong>Rent:</strong> ₹{roommateData.rent}</p>
-            <p><strong>Contact No.:</strong> {roommateData.contactNo}</p>
 
             <div className="detailsColumns">
 

@@ -45,6 +45,7 @@ const RoomPage = () => {
             <p><strong>Name:</strong> {roomData.createdBy.name}</p>
             <p><strong>Email:</strong> {roomData.createdBy.email}</p>
             <p><strong>Gender:</strong> {roomData.createdBy.gender}</p>
+            <p><strong>Contact No:</strong> {roomData.contactNo}</p>
           </div>
           <div className="rightColumn">
             <h2>Location: {roomData.location}</h2>

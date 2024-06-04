@@ -12,7 +12,10 @@ import "./Register.css";
 
 const minYear = 2000;
 const maxYear = 2050;
-const years = Array.from({ length: maxYear - minYear + 1 }, (_, i) => minYear + i);
+const years = Array.from(
+  { length: maxYear - minYear + 1 },
+  (_, i) => minYear + i
+);
 
 const streamData = [
   { value: "AEIE", label: "AEIE" },
@@ -31,6 +34,7 @@ const Register = () => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    contactNumber: "",
     password: "",
     confirmPassword: "",
     gender: "",
@@ -73,7 +77,6 @@ const Register = () => {
     // Send data to the server
     sendDataToServer();
     window.location.href = "/basic";
-
   };
 
   const sendDataToServer = async () => {
@@ -92,14 +95,11 @@ const Register = () => {
       if (response.ok && responseData.token) {
         localStorage.setItem("token", responseData.token);
         window.location.href = "/basic";
-
       }
     } catch (error) {
       console.error("Error:", error);
     }
   };
-
-
 
   return (
     <div className="register-container">
@@ -126,6 +126,7 @@ const Register = () => {
             fullWidth
             margin="normal"
           />
+          
           <TextField
             label="Where are you from?"
             type="text"
