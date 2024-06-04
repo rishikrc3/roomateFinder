@@ -92,8 +92,8 @@ const RoomForm = () => {
           rules={[{ required: true, message: "Please select an option!" }]}
         >
           <Select className="form-input">
-            <Option value="female">Female</Option>
-            <Option value="male">Male</Option>
+            <Option value="Female">Female</Option>
+            <Option value="Male">Male</Option>
           </Select>
         </Form.Item>
 
