@@ -35,7 +35,12 @@
   border: 1px solid #ced4da;
   border-radius: 7px;
 }
-
+.stream-select {
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ced4da;
+  border-radius: 7px;
+}
 .search-btn {
   padding: 10px 20px;
   font-size: 16px;

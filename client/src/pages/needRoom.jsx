@@ -9,45 +9,6 @@ const RoomForm = () => {
   const [form] = Form.useForm();
 
   const onFinish = async (values) => {
-    // const token = localStorage.getItem("token");
-
-    // if (!token) {
-    //   console.error("No token found in local storage.");
-    //   alert("Authorization token is missing. Please log in again.");
-    //   return;
-    // }
-
-    // console.log("Form Values:", JSON.stringify(values));
-    // console.log("Token:", token);
-
-    // try {
-    //   const response = await axios.post(
-    //     "http://localhost:8000/api/requirements/",
-    //     JSON.stringify(values),
-    //     {
-    //       headers: {
-    //         Authorization: `Bearer ${token}`,
-    //         "Content-Type": "application/json",
-    //       },
-    //     }
-    //   );
-    //   console.log("Success:", response.data);
-    //   window.location.href = "/success";
-      
-    // } catch (error) {
-    //   if (error.response) {
-    //     console.error("Error Response Data:", error.response.data);
-    //     console.error("Error Response Status:", error.response.status);
-    //     console.error("Error Response Headers:", error.response.headers);
-    //     if (error.response.status === 401) {
-    //       alert("Unauthorized: Invalid token. Please log in again.");
-    //     }
-    //   } else if (error.request) {
-    //     console.error("Error Request:", error.request);
-    //   } else {
-    //     console.error("Error Message:", error.message);
-    //   }
-    // }
     console.log("Form Values:", JSON.stringify(values));
     const token = localStorage.getItem("token");
     console.log("Token:", token);

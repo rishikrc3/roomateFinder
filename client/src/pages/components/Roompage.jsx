@@ -37,22 +37,59 @@ const RoomPage = () => {
 
   return (
     <div className="container">
-      <h1 className="header">Room Page</h1>
+      <h1 className="header">Post Details</h1>
       {roomData && (
         <div className="roomDetails">
           <div className="leftColumn">
             <h3 className="sectionTitle">Created By</h3>
-            <p><strong>Name:</strong> {roomData.createdBy.name}</p>
-            <p><strong>Email:</strong> {roomData.createdBy.email}</p>
-            <p><strong>Gender:</strong> {roomData.createdBy.gender}</p>
-            <p><strong>Contact No:</strong> {roomData.contactNo}</p>
+            <p>
+              <strong>Name:</strong> {roomData.createdBy.name}
+            </p>
+            <p>
+              <strong>Email:</strong> {roomData.createdBy.email}
+            </p>
+            <p>
+              <strong>Where From:</strong> {roomData.createdBy.from}
+            </p>
+            <p>
+              <strong>Gender:</strong> {roomData.createdBy.gender}
+            </p>
+            <p>
+              <strong>Contact No:</strong> {roomData.createdBy.contactNo}
+            </p>
+            <p>
+              <strong>Stream:</strong> {roomData.createdBy.stream}
+            </p>
+            <p>
+              <strong>Year of Passing:</strong>{" "}
+              {roomData.createdBy.yearOfPassing}
+            </p>
+            <ul>
+              {Object.keys(roomData.createdBy.preferences)
+                .filter((key) => roomData.createdBy.preferences[key])
+                .map((key) => (
+                  <li key={key}>
+                    <strong>
+                      {key.charAt(0).toUpperCase() + key.slice(1)}
+                    </strong>
+                  </li>
+                ))}
+            </ul>
           </div>
           <div className="rightColumn">
             <h2>Location: {roomData.location}</h2>
-            <p><strong>Looking For:</strong> {roomData.lookingFor}</p>
-            <p><strong>Mess Name:</strong> {roomData.messName}</p>
-            <p><strong>Occupancy:</strong> {roomData.occupancy}</p>
-            <p><strong>Rent:</strong> ₹{roomData.rent}</p>
+            <p>
+              <strong>Looking For:</strong> {roomData.lookingFor}
+            </p>
+            <p>
+              <strong>Mess Name:</strong> {roomData.messName}
+            </p>
+            <p>
+              <strong>Occupancy:</strong> {roomData.occupancy}
+            </p>
+            <p>
+              <strong>Rent:</strong> ₹{roomData.rent}
+            </p>
 
             <div className="detailsColumns">
               <div className="detailsColumn">
