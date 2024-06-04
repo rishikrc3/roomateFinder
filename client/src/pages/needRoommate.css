@@ -28,5 +28,18 @@
   
   .form-submit-button {
     width: 100%;
+    margin-top: 20px;
+    background-color: #449ba2 !important;
+    color: #ffffff !important;
+    font-size: 1em;
+    padding: 10px 20px;
+    text-transform: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    border: none;
+    border-radius: 0.5rem;
+  }
+  .form-submit-button:hover {
+    background-color: #367f85 !important;
+    transform: translateY(-2px);
   }
   

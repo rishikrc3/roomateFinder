@@ -41,7 +41,8 @@ const RoomForm = () => {
 
   return (
     <div className="form-wrapper">
-      <h2 className="form-title">Create a Room</h2>
+      <h2 className="form-title">Add Your Requirement</h2>
+      <p className="paragraph">To find a compatible roommate</p>
       <Form
         form={form}
         name="room_form"

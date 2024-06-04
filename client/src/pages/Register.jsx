@@ -119,7 +119,7 @@ const Register = () => {
       console.log("Response:", responseData);
       if (response.ok && responseData.token) {
         localStorage.setItem("token", responseData.token);
-        window.location.href = "/basic";
+        window.location.href = "/login";
       }
     } catch (error) {
       console.error("Error:", error);

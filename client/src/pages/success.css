@@ -1,33 +1,47 @@
+.success-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f0f0f0;
+}
 
-.success-page {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .success-card {
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.215);
-    padding: 20px;
-    border-radius: 8px;
-    text-align: center;
-    height: 15rem;
-    width: 35rem;
-  }
-  
-  button {
-    background-color: #449ba2;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 10px;
-  }
-  
-  button:hover {
-    background-color: #1b8c94;
-  }
-  
+.success-box {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 75%;
+  max-width: 600px;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.redirect-button {
+  padding: 10px 20px;
+  background-color: #72B2B7;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.redirect-button:hover {
+  background-color: #367f85;
+}
+
+.success-image-container {
+  margin-top: 20px;
+  width: 100%;
+}
+

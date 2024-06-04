@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate for redirection
 import axios from 'axios';
 import './profile.css';
 
 const Profile = () => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   useEffect(() => {
     const fetchProfile = async () => {
@@ -26,6 +28,11 @@ const Profile = () => {
     fetchProfile();
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove token from localStorage
+    navigate('/login'); // Redirect to login page
+  };
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -33,6 +40,7 @@ const Profile = () => {
   return (
     <div className="profile-container">
       <h1>Profile</h1>
+      <button onClick={handleLogout} className="logout-button">Logout</button> {/* Add logout button */}
       {profile && (
         <>
           <h2>{profile.name}</h2>

@@ -17,6 +17,7 @@ import Footer from './pages/Footer' ;
 import './index.css';
 import RoomPage from './pages/components/Roompage';
 import RoommatePage from './pages/components/RoommatePage';
+import SuccessPage from './pages/success';
 const appRouter = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +50,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/needRoommate",
         element: <NeedRoommate />,
+      },
+      {
+        path: "/success",
+        element: <SuccessPage />,
       },
       {
         path: "/profile",
