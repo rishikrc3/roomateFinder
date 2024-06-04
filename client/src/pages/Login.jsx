@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TextField, Button, InputLabel } from '@mui/material';
-import loginImage from '../images/login.png';
+import loginImage from '../images/login2.png';
 import './login.css';
 import axios from 'axios';
 
