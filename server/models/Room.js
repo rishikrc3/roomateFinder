@@ -26,6 +26,13 @@ const RoomSchema = new mongoose.Schema({
     Parking: { type: Boolean, default: false },
     AnimationEffectc: { type: Boolean, default: false },
   },
+  preferredStream: {
+    type: String,
+    enum: [
+      'AEIE', 'BME', 'CSE', 'ECE', 'IT', 'EE', 'CE', 'CSBS', 'ME', 'CSE(AI/ML)'
+    ],
+    required: true
+  }, // Added preferredStream with enum
   createdBy: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
 });
 
