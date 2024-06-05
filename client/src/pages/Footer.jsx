@@ -51,11 +51,11 @@ const Footer = () => {
         <div className="footer-link-wrapper-parent">
           <div className='footer-link-wrapper'>
             <div class='footer-link-items'>
-              <h2>Videos</h2>
-              <Link to='/'>Submit Video</Link>
-              <Link to='/'>Ambassadors</Link>
-              <Link to='/'>Agency</Link>
-              <Link to='/'>Influencer</Link>
+              <h2>Our Alumnies</h2>
+              <Link to='/'>ECE</Link>
+              <Link to='/'>CSE</Link>
+              <Link to='/'>IT</Link>
+              <Link to='/'>BME</Link>
             </div>
           </div>
           <div className="footer-link-wrapperr">
@@ -73,8 +73,8 @@ const Footer = () => {
         <div class='social-media-wrap'>
           <div class='footer-logo'>
             <Link to='/' className='social-logo'>
-              MessMate
-              <i class='fab fa-typo3' />
+              Nest
+              {/* <i class='fab fa-typo3' /> */}
             </Link>
           </div>
           <small class='website-rights'>© 2024 MessMate All Rights Reserved</small>

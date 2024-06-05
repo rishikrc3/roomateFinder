@@ -11,7 +11,7 @@ import {
   FormControlLabel,
 } from "@mui/material";
 import axios from "axios";
-import "./Register.css"; // Assuming you have similar styles for Register and RoomForm
+import "./needRoommate.css"; // Assuming you have similar styles for Register and RoomForm
 
 const RoomForm = () => {
   const [formData, setFormData] = useState({
@@ -74,11 +74,12 @@ const RoomForm = () => {
         JSON.stringify(formData),
         {
           headers: {
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`, // Fixed: added backticks
             "Content-Type": "application/json",
           },
         }
       );
+      
       console.log("Success:", response.data);
       window.location.href = "/success";
     } catch (error) {

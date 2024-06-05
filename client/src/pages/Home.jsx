@@ -41,7 +41,7 @@ const Home = () => {
         <div className="left-half-wrapper">
           <p className="p1">Hey! What's Up NSECians!</p>
           <p className="p2">
-            Find Your Compatible Roommate from Your Collge Commuinty
+            Find Your Compatible Roommate from Your College Commuinty
           </p>
 
           <Button onClick={handleClick}>Get Started</Button>
