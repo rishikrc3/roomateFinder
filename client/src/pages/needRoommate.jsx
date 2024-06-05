@@ -1,25 +1,80 @@
-import React from "react";
-import { Form, Input, InputNumber, Switch, Button, Select } from "antd";
+import React, { useState } from "react";
+import {
+  TextField,
+  Button,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+  Switch,
+  Grid,
+  FormControlLabel,
+} from "@mui/material";
 import axios from "axios";
-import "./needRoommate.css";
-
-const { Option } = Select;
+import "./Register.css"; // Assuming you have similar styles for Register and RoomForm
 
 const RoomForm = () => {
-  const [form] = Form.useForm();
+  const [formData, setFormData] = useState({
+    messName: "",
+    location: "",
+    lookingFor: "",
+    rent: "",
+    occupancy: "",
+    contactNo: "",
+    preferenceStream: "",
+    highlights: {
+      AttachedWashroom: false,
+      MarketNearby: false,
+      CloseToMetroStation: false,
+      PublicTransportNearby: false,
+      NoRestriction: false,
+      GymNearby: false,
+      Housekeeping: false,
+    },
+    amenities: {
+      Tv: false,
+      Wifi: false,
+      Fridge: false,
+      Kitchen: false,
+      PowerBackup: false,
+      Cook: false,
+      Parking: false,
+      Ac: false,
+    },
+  });
 
-  const onFinish = async (values) => {
-    console.log("Form Values:", JSON.stringify(values));
-    const token = localStorage.getItem("token");
-    console.log("Token:", token);
+  const [error, setError] = useState("");
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSwitchChange = (category, name) => (e) => {
+    setFormData({
+      ...formData,
+      [category]: {
+        ...formData[category],
+        [name]: e.target.checked,
+      },
+    });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError("");
+    console.log(formData);
 
     try {
       const response = await axios.post(
         "http://localhost:8000/api/rooms/",
-        JSON.stringify(values),
+        JSON.stringify(formData),
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
             "Content-Type": "application/json",
           },
         }
@@ -27,6 +82,7 @@ const RoomForm = () => {
       console.log("Success:", response.data);
       window.location.href = "/success";
     } catch (error) {
+      console.error("Error:", error);
       if (error.response) {
         console.error("Error Response Data:", error.response.data);
         console.error("Error Response Status:", error.response.status);
@@ -39,259 +95,159 @@ const RoomForm = () => {
     }
   };
 
+  const streamData = [
+    { value: "AEIE", label: "AEIE" },
+    { value: "BME", label: "BME" },
+    { value: "CSE", label: "CSE" },
+    { value: "ECE", label: "ECE" },
+    { value: "IT", label: "IT" },
+    { value: "EE", label: "EE" },
+    { value: "CE", label: "CE" },
+    { value: "CSBS", label: "CSBS" },
+    { value: "ME", label: "ME" },
+    { value: "CSE(AI/ML)", label: "CSE(AI/ML)" },
+  ];
+
   return (
-    <div className="form-wrapper">
-      <h2 className="form-title">Add Your Requirement</h2>
-      <p className="paragraph">To find a compatible roommate</p>
-      <Form
-        form={form}
-        name="room_form"
-        onFinish={onFinish}
-        className="form-content"
-      >
-        <Form.Item
-          label="Mess Name"
-          name="messName"
-          rules={[{ required: true, message: "Please input the mess name!" }]}
-        >
-          <Input className="form-input" />
-        </Form.Item>
-
-        <Form.Item
-          label="Location"
-          name="location"
-          rules={[{ required: true, message: "Please input the location!" }]}
-        >
-          <Input className="form-input" />
-        </Form.Item>
-
-        <Form.Item
-          label="Looking For"
-          name="lookingFor"
-          rules={[{ required: true, message: "Please select an option!" }]}
-        >
-          <Select className="form-input">
-            <Option value="Female">Female</Option>
-            <Option value="Male">Male</Option>
-          </Select>
-        </Form.Item>
-
-        <Form.Item
-          label="Rent"
-          name="rent"
-          rules={[{ required: true, message: "Please input the rent!" }]}
-        >
-          <InputNumber min={0} className="form-input" />
-        </Form.Item>
-
-        <Form.Item
-          label="Occupancy"
-          name="occupancy"
-          rules={[{ required: true, message: "Please input the occupancy!" }]}
-        >
-          <Select className="form-input">
-            <Option value="Double">Double</Option>
-            <Option value="Triple">Triple</Option>
-          </Select>
-        </Form.Item>
-
-        <Form.Item
-          label="Contact No."
-          name="contactNo"
-          rules={[
-            { required: true, message: "Please input your contact number!" },
-            { pattern: /^[0-9]{10}$/, message: "Contact number must be 10 digits long!" }
-          ]}
-        >
-          <Input className="form-input" />
-        </Form.Item>
-
-
-        <Form.Item label="Highlights" name="highlights">
-          <div className="form-switch-group">
-            <Form.Item
-              name={["highlights", "AttachedWashroom"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Attached Washroom"
-                unCheckedChildren="No Attached Washroom"
-                className="form-switch"
+    <div className="register-container">
+      <div className="form-container">
+        <h2 className="register-heading">Add Your Requirement</h2>
+        <p className="paragraph">To find a compatible roommate</p>
+        <form onSubmit={handleSubmit}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} md={6}>
+              <TextField
+                label="Mess Name"
+                type="text"
+                name="messName"
+                value={formData.messName}
+                onChange={handleChange}
+                required
+                fullWidth
+                margin="normal"
               />
-            </Form.Item>
-            <Form.Item
-              name={["highlights", "MarketNearby"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Market Nearby"
-                unCheckedChildren="No Market Nearby"
-                className="form-switch"
+              <TextField
+                label="Location"
+                type="text"
+                name="location"
+                value={formData.location}
+                onChange={handleChange}
+                required
+                fullWidth
+                margin="normal"
               />
-            </Form.Item>
-            <Form.Item
-              name={["highlights", "CloseToMetroStation"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Close to Metro"
-                unCheckedChildren="Not Close to Metro"
-                className="form-switch"
+              <FormControl fullWidth margin="normal" required>
+                <InputLabel>Looking For</InputLabel>
+                <Select
+                  value={formData.lookingFor}
+                  onChange={handleChange}
+                  name="lookingFor"
+                >
+                  <MenuItem value="any">Any</MenuItem>
+                  <MenuItem value="Female">Female</MenuItem>
+                  <MenuItem value="Male">Male</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField
+                label="Rent"
+                type="number"
+                name="rent"
+                value={formData.rent}
+                onChange={handleChange}
+                required
+                fullWidth
+                margin="normal"
               />
-            </Form.Item>
-            <Form.Item
-              name={["highlights", "PublicTransportNearby"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Public Transport Nearby"
-                unCheckedChildren="No Public Transport Nearby"
-                className="form-switch"
+              <FormControl fullWidth margin="normal" required>
+                <InputLabel>Occupancy</InputLabel>
+                <Select
+                  value={formData.occupancy}
+                  onChange={handleChange}
+                  name="occupancy"
+                >
+                  <MenuItem value="Double">Double</MenuItem>
+                  <MenuItem value="Triple">Triple</MenuItem>
+                </Select>
+              </FormControl>
+              <TextField
+                label="Contact No."
+                type="text"
+                name="contactNo"
+                value={formData.contactNo}
+                onChange={handleChange}
+                required
+                fullWidth
+                margin="normal"
+                inputProps={{ pattern: "[0-9]{10}" }}
+                helperText="Contact number must be 10 digits long!"
               />
-            </Form.Item>
-            <Form.Item
-              name={["highlights", "NoRestriction"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="No Restriction"
-                unCheckedChildren="Has Restriction"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["highlights", "GymNearby"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Gym Nearby"
-                unCheckedChildren="No Gym Nearby"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["highlights", "Housekeeping"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Housekeeping"
-                unCheckedChildren="No Housekeeping"
-                className="form-switch"
-              />
-            </Form.Item>
-          </div>
-        </Form.Item>
-
-        <Form.Item label="Amenities" name="amenities">
-          <div className="form-switch-group">
-            <Form.Item
-              name={["amenities", "Tv"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="TV"
-                unCheckedChildren="No TV"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["amenities", "Wifi"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="WiFi"
-                unCheckedChildren="No WiFi"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["amenities", "Fridge"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Fridge"
-                unCheckedChildren="No Fridge"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["amenities", "Kitchen"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Kitchen"
-                unCheckedChildren="No Kitchen"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["amenities", "PowerBackup"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Power Backup"
-                unCheckedChildren="No Power Backup"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["amenities", "Cook"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Cook"
-                unCheckedChildren="No Cook"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["amenities", "Parking"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="Parking"
-                unCheckedChildren="No Parking"
-                className="form-switch"
-              />
-            </Form.Item>
-            <Form.Item
-              name={["amenities", "Ac"]}
-              valuePropName="checked"
-              noStyle
-            >
-              <Switch
-                checkedChildren="AC"
-                unCheckedChildren="No AC"
-                className="form-switch"
-              />
-            </Form.Item>
-          </div>
-        </Form.Item>
-
-        <Form.Item>
+              <FormControl fullWidth margin="normal" required>
+                <InputLabel>Preference Stream</InputLabel>
+                <Select
+                  value={formData.preferenceStream}
+                  onChange={handleChange}
+                  name="preferenceStream"
+                  MenuProps={{
+                    PaperProps: {
+                      style: {
+                        maxHeight: 200,
+                      },
+                    },
+                  }}
+                >
+                  {streamData.map((stream) => (
+                    <MenuItem key={stream.value} value={stream.value}>
+                      {stream.label}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <h3>Highlights</h3>
+              <div className="preferences-container">
+                {Object.keys(formData.highlights).map((highlight) => (
+                  <FormControlLabel
+                    key={highlight}
+                    control={
+                      <Switch
+                        checked={formData.highlights[highlight]}
+                        onChange={handleSwitchChange("highlights", highlight)}
+                        name={highlight}
+                      />
+                    }
+                    label={highlight.replace(/([A-Z])/g, " $1")}
+                  />
+                ))}
+              </div>
+              <h3>Amenities</h3>
+              <div className="preferences-container">
+                {Object.keys(formData.amenities).map((amenity) => (
+                  <FormControlLabel
+                    key={amenity}
+                    control={
+                      <Switch
+                        checked={formData.amenities[amenity]}
+                        onChange={handleSwitchChange("amenities", amenity)}
+                        name={amenity}
+                      />
+                    }
+                    label={amenity.replace(/([A-Z])/g, " $1")}
+                  />
+                ))}
+              </div>
+            </Grid>
+          </Grid>
           <Button
-            type="primary"
-            htmlType="submit"
-            className="form-submit-button"
+            variant="contained"
+            type="submit"
+            color="primary"
+            className="register-button"
           >
             Submit
           </Button>
-        </Form.Item>
-      </Form>
+        </form>
+      </div>
     </div>
   );
 };

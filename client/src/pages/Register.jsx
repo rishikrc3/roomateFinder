@@ -29,7 +29,7 @@ const streamData = [
   { value: "CE", label: "CE" },
   { value: "CSBS", label: "CSBS" },
   { value: "ME", label: "ME" },
-  { value: "CSE(AIMLL)", label: "CSE(AIMLL)" },
+  { value: "CSE(AI/ML)", label: "CSE(AI/ML)" },
 ];
 
 const preferencesList = [

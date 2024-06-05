@@ -31,7 +31,7 @@ const UserSchema = new mongoose.Schema({
     NonSmoker: { type: Boolean, default: true },
   },
   from: { type: String, required: false },
-  stream: { type: String, enum: ['AEIE', 'BME', 'CSE', 'ECE', 'IT', 'EE', 'CE', 'CSBS', 'ME', 'CSE(AIMLL)'], required: true },
+  stream: { type: String, enum: ['AEIE', 'BME', 'CE', 'CSBS','CSE', 'CSE(AI/ML)', 'ECE',  'EE',  'IT', 'ME', ], required: true },
   yearOfPassing: { type: Number, required: true, min: 2000, max: 2050 },
   profileImage: { type: String }, // Add profileImage field
 });

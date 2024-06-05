@@ -6,7 +6,7 @@ const RequirementSchema = new mongoose.Schema({
   rent: { type: Number, required: true },
   contactNo: { type: Number, required: true },
   lookingFor: { type: String, enum: ['Male', 'Female', 'any'], default: 'any' },
-  preferenceStream: {type: String, required: true},
+  preferenceStream: {type: String, enum: ['AEIE', 'BME', 'CE', 'CSBS','CSE', 'CSE(AI/ML)', 'ECE',  'EE',  'IT', 'ME', ], required: true},
   description: { type: String},
 });
 
