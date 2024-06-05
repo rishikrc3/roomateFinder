@@ -13,7 +13,7 @@ const SuccessPage = () => {
   return (
     <div className="success-container">
       <div className="success-box">
-        <h2>Your requirement is successfully created</h2>
+        <h2 className="h2-text">Your requirement is successfully created</h2>
         <button onClick={handleRedirect} className="redirect-button">
           Go to Basic Page
         </button>
