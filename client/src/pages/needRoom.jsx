@@ -21,10 +21,6 @@ const RoomForm = () => {
     description: "",
   });
 
-<<<<<<< HEAD
-  const onFinish = async (values) => {
-    console.log("Form Values:", JSON.stringify(values));
-=======
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -53,7 +49,6 @@ const RoomForm = () => {
     e.preventDefault();
     if (!validate()) return;
 
->>>>>>> main
     const token = localStorage.getItem("token");
     try {
       const response = await axios.post(
